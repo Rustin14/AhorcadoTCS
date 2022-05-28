@@ -16,9 +16,9 @@
         </Label>
         <Button Content="Crear nueva partida" HorizontalAlignment="Left" Margin="126,0,0,0" VerticalAlignment="Center" FontSize="22" Visibility="Visible" BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold"/>
         <Button Content="Unirse a una partida" HorizontalAlignment="Left" Margin="123,270,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Bold"/>
-        <Button Content="Salir" HorizontalAlignment="Center" Margin="0,335,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click" Width="58" FontWeight="Bold"/>
+        <Button Content="Salir" HorizontalAlignment="Center" Margin="0,335,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSalir" Width="58" FontWeight="Bold"/>
         <Label Content="Perfil Usuario" HorizontalAlignment="Left" Margin="277,14,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Height="45" Width="47" BorderBrush="White">
+        <Button Content="" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Height="45" Width="47" BorderBrush="White" Click="BtnPerfil">
             <Button.Background>
                 <ImageBrush ImageSource="/Imagenes/perfil icono.png"/>
             </Button.Background>

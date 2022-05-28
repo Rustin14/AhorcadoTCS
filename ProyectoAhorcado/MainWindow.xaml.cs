@@ -31,5 +31,12 @@ namespace ProyectoAhorcado
             menuInicio.Show();
             this.Close();
         }
+
+        private void BtnRegistrar(object sender, RoutedEventArgs e)
+        {
+            RegistroWindow registroWindow = new RegistroWindow();
+            registroWindow.Show();
+            this.Close();
+        }
     }
 }

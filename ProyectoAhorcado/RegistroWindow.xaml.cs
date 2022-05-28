@@ -15,24 +15,26 @@ using System.Windows.Shapes;
 namespace ProyectoAhorcado
 {
     /// <summary>
-    /// Lógica de interacción para MenuInicio.xaml
+    /// Lógica de interacción para RegistroWindow.xaml
     /// </summary>
-    public partial class MenuInicio : Window
+    public partial class RegistroWindow : Window
     {
-        public MenuInicio()
+        public RegistroWindow()
         {
             InitializeComponent();
         }
 
-        private void BtnPerfil(object sender, RoutedEventArgs e)
+        private void BtnRegistrar(object sender, RoutedEventArgs e)
         {
-            PerfilWindow perfilWindow = new PerfilWindow();
-            perfilWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
 
-        private void BtnSalir(object sender, RoutedEventArgs e)
+        private void BtnCancelar(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
     }

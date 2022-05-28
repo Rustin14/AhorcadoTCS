@@ -1,0 +1,23 @@
+﻿<Window x:Class="ProyectoAhorcado.PerfilWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAhorcado"
+        mc:Ignorable="d"
+        Title="PerfilWindow" Height="650" Width="600">
+    <Grid>
+        <Label Content="PERFIL" HorizontalAlignment="Left" Margin="154,29,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="49,90,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="311,90,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="49,183,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="311,183,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Nombre(s)" HorizontalAlignment="Left" Margin="49,129,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Apellido(s)" HorizontalAlignment="Left" Margin="311,129,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="NombreUsuario" HorizontalAlignment="Left" Margin="49,231,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="email@example.com" HorizontalAlignment="Left" Margin="311,231,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button Content="Regresar" HorizontalAlignment="Left" Margin="300,567,0,0" VerticalAlignment="Top" FontSize="18" Width="85" Click="BtnRegresar"/>
+        <Button Content="Actualizar datos" HorizontalAlignment="Left" Margin="428,567,0,0" VerticalAlignment="Top" FontSize="18" Width="151" Click="BtnActualizarDatos"/>
+
+    </Grid>
+</Window>
