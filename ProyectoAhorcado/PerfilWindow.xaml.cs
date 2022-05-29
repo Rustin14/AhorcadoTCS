@@ -33,8 +33,10 @@ namespace ProyectoAhorcado
 
         private void BtnActualizarDatos(object sender, RoutedEventArgs e)
         {
-            MenuInicio menuInicio = new MenuInicio();
-            menuInicio.Show();
+            RegistroWindow registroWindow = new RegistroWindow();
+            registroWindow.ventanaLabel.Content = "Actualizar";
+            registroWindow.registrarButton.Content = "Actualizar";
+            registroWindow.Show();
             this.Close();
         }
     }

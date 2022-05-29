@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RegistroWindow" Height="450" Width="500">
     <Grid>
-        <Label Content="REGISTRO" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="ventanaLabel" Content="REGISTRO" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="38,83,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Apellidos" HorizontalAlignment="Left" Margin="247,83,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="nombreTextBox" HorizontalAlignment="Left" Margin="38,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" BorderBrush="{x:Null}"/>
@@ -27,7 +27,7 @@
         <PasswordBox x:Name="contrasenaBox" HorizontalAlignment="Left" Margin="41,317,0,0" VerticalAlignment="Top" Width="138" BorderBrush="{x:Null}" FontSize="16"/>
         <PasswordBox x:Name="confirmarContrasenaBox" HorizontalAlignment="Left" Margin="255,317,0,0" VerticalAlignment="Top" Width="138" BorderBrush="{x:Null}" FontSize="16"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="209,373,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="76" Click="BtnCancelar"/>
-        <Button Content="Registrar" HorizontalAlignment="Left" Margin="330,373,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="81" Click="BtnRegistrar"/>
+        <Button x:Name="registrarButton" Content="Registrar" HorizontalAlignment="Left" Margin="330,373,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="81" Click="BtnRegistrar"/>
 
     </Grid>
 </Window>

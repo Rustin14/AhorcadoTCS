@@ -26,16 +26,34 @@ namespace ProyectoAhorcado
 
         private void BtnRegistrar(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            if (registrarButton.Content.Equals("Registrar"))
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                PerfilWindow perfilWindow = new PerfilWindow();
+                perfilWindow.Show();
+                this.Close();
+            }
         }
 
         private void BtnCancelar(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            if (registrarButton.Content.Equals("Registrar"))
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                PerfilWindow perfilWindow = new PerfilWindow();
+                perfilWindow.Show();
+                this.Close();
+            }
         }
     }
 }
