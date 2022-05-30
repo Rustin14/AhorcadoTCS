@@ -5,6 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoAhorcado"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="MainWindow" Height="500" Width="500">
+    <Grid>
+        <Label Content="Inicio de sesion" HorizontalAlignment="Left" Margin="41,35,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Olvidaste tu contraseña? Da click Aqui" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button Content="Registrar" HorizontalAlignment="Left" Margin="375,416,0,0" VerticalAlignment="Top" FontSize="16" Width="82" Click="BtnRegistrar"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Margin="112,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" FontSize="18" Background="White"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="112,136,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="112,0,0,0" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="ingresarButton" Content="Ingresar" HorizontalAlignment="Left" Margin="185,320,0,0" VerticalAlignment="Top" FontSize="18" Width="96" Height="33" Click="BtnIngresar"/>
+        <PasswordBox x:Name="contrasenaBox" HorizontalAlignment="Left" Margin="112,272,0,0" VerticalAlignment="Top" Width="247" FontSize="18"/>
+    </Grid>
 </Window>

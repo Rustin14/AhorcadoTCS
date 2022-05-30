@@ -10,31 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProyectoAhorcado
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para PerfilWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PerfilWindow : Window
     {
-        public MainWindow()
+        public PerfilWindow()
         {
             InitializeComponent();
         }
 
-        private void BtnIngresar(object sender, RoutedEventArgs e)
+        private void BtnRegresar(object sender, RoutedEventArgs e)
         {
             MenuInicio menuInicio = new MenuInicio();
             menuInicio.Show();
             this.Close();
         }
 
-        private void BtnRegistrar(object sender, RoutedEventArgs e)
+        private void BtnActualizarDatos(object sender, RoutedEventArgs e)
         {
             RegistroWindow registroWindow = new RegistroWindow();
+            registroWindow.ventanaLabel.Content = "Actualizar";
+            registroWindow.registrarButton.Content = "Actualizar";
             registroWindow.Show();
             this.Close();
         }
