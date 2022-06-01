@@ -113,6 +113,7 @@
     <Compile Include="IAhorcadoSVC.cs" />
     <Compile Include="Modelo\ConnectionUtil.cs" />
     <Compile Include="Modelo\DAO\UsuarioDAO.cs" />
+    <Compile Include="Modelo\GameUtil.cs" />
     <Compile Include="Modelo\Poco\Mensaje.cs" />
     <Compile Include="Modelo\Poco\Partida.cs" />
     <Compile Include="Modelo\Poco\Palabra.cs" />
