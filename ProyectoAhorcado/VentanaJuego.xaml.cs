@@ -24,5 +24,15 @@ namespace ProyectoAhorcado
         {
             InitializeComponent();
         }
+
+        public void llenarComponente(String palabra)
+        {
+            int numeroLetras = palabra.Length;
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -11,15 +11,15 @@
     <Grid>
         <Rectangle HorizontalAlignment="Center" Height="600" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#7FFFFFFF"/>
         <Rectangle HorizontalAlignment="Center" Height="580" Stroke="Black" VerticalAlignment="Center" Width="780" Fill="White"/>
-        <DockPanel LastChildFill="False" Width="700" Height="75" Margin="0,466,0,60" HorizontalAlignment="Center">
-            <TextBlock DockPanel.Dock="Left" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 1 </TextBlock>
-            <TextBlock DockPanel.Dock="Left" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 2 </TextBlock>
-            <TextBlock DockPanel.Dock="Left" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 3 </TextBlock>
-            <TextBlock DockPanel.Dock="Left" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 4 </TextBlock>
-            <TextBlock DockPanel.Dock="Left" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 5 </TextBlock>
-
-
-
+        <DockPanel x:Name="panelPalabra" LastChildFill="False" Height="75" Margin="0 360 0 0" HorizontalAlignment="Center">
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 1</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 2</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 3</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 4</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 5</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 6</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 7</TextBlock>
+            <TextBlock DockPanel.Dock="Left" Margin="10 0 10 0" Width="50" Height="75" FontSize="60" TextAlignment="Center" VerticalAlignment="Center"> 8</TextBlock>
 
 
         </DockPanel>
