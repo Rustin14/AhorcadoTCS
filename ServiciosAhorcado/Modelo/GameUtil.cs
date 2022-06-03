@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ServiciosAhorcado.Modelo.Poco;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -7,30 +9,45 @@ namespace ServiciosAhorcado.Modelo
 {
     public class GameUtil
     {
-        public String letraSeleccionada { get; set; }
-        public String palabraSeleccionada { set; get; }
-        int partesAhorcado = 0;
+        public static String palabraSeleccionada { set; get; }
+        public static List<char> arrayPalabra = new List<char>();
+        public static Boolean juegoFinalizado = false;
 
-        public void IniciarPartida(string palabra)
+        public static void IniciarPartida(string palabra)
         {
-            palabraSeleccionada = palabra;
-            Boolean juegoFinalizado = false;
-            while (partesAhorcado < 6 || juegoFinalizado == false)
+            palabraSeleccionada = palabra.ToLower();
+            for (int i = 0; i < palabraSeleccionada.Length; i++)
             {
-               
+                arrayPalabra.Add(palabraSeleccionada[i]);
             }
         }
 
-        public Char[] verificarLetra(Char[] palabra)
+        public static List<int> verificarLetra(char letra)
         {
-            if (letraSeleccionada.IndexOf(palabraSeleccionada, StringComparison.CurrentCultureIgnoreCase) > 0)
+            List<int> coincidencias = new List<int>();
+            IEnumerable<char> stringQuery = from ch in palabraSeleccionada
+                                            where ch == letra
+                                            select ch;
+            foreach (char ch in stringQuery)
             {
+                coincidencias.Append(arrayPalabra.IndexOf(ch));
+                System.Diagnostics.Debug.WriteLine(arrayPalabra.IndexOf(ch));
+                arrayPalabra.RemoveAt(arrayPalabra.IndexOf(ch));
+            }
+            return coincidencias;
+        }
 
-            }
-            else if (letraSeleccionada.IndexOf(palabraSeleccionada, StringComparison.CurrentCultureIgnoreCase) != -1)
+        public static DatosJuego verificarPalabra(String palabraAdivinada)
+        {
+            DatosJuego datos = new DatosJuego();
+            if (palabraAdivinada.Equals(palabraSeleccionada))
             {
-                partesAhorcado++;
+                datos.juegoFinalizado = true;
+            } else
+            {
+                datos.juegoFinalizado = false;
             }
+            return datos;
         }
 
     }

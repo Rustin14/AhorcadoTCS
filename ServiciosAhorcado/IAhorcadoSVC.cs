@@ -14,5 +14,11 @@ namespace ServiciosAhorcado
     {
         [OperationContract]
         RespuestaLogin LogIn(String username, String password);
+
+        [OperationContract]
+        List<int> checarLetra(char letra);
+
+        [OperationContract]
+        void iniciarJuego(String palabra);
     }
 }

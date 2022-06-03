@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RespuestaLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InformacionUsuario" nillable="true" type="tns:Usuario" />
+      <xs:element minOccurs="0" name="UsuarioCorrecto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaLogin" nillable="true" type="tns:RespuestaLogin" />
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidoMaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apellidoPaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="correoElectronico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+</xs:schema>
