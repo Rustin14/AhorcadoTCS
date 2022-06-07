@@ -34,5 +34,12 @@ namespace ServiciosAhorcado
         {
             GameUtil.IniciarPartida(palabra);
         }
+
+        public List<Palabra> obtenerPalabras()
+        {
+            List<Palabra> palabras = new List<Palabra>();
+            palabras = PalabraDAO.ObtenerPalabras();
+            return palabras;
+        }
     }
 }

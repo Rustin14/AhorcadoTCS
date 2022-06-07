@@ -28,12 +28,18 @@ namespace ServiciosAhorcado.Modelo
             IEnumerable<char> stringQuery = from ch in palabraSeleccionada
                                             where ch == letra
                                             select ch;
+            int index = 0;
             foreach (char ch in stringQuery)
             {
-                coincidencias.Append(arrayPalabra.IndexOf(ch));
-                System.Diagnostics.Debug.WriteLine(arrayPalabra.IndexOf(ch));
-                arrayPalabra.RemoveAt(arrayPalabra.IndexOf(ch));
+                if (index != -1)
+                {
+                    index = arrayPalabra.IndexOf(ch, index);
+                    System.Diagnostics.Debug.WriteLine(index);
+                    coincidencias.Add(index);
+                    index++;
+                }
             }
+            System.Diagnostics.Debug.WriteLine("Coincidencias: " + coincidencias.Count());
             return coincidencias;
         }
 

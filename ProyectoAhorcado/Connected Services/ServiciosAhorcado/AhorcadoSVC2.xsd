@@ -19,4 +19,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:complexType name="ArrayOfPalabra">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Palabra" nillable="true" type="tns:Palabra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPalabra" nillable="true" type="tns:ArrayOfPalabra" />
+  <xs:complexType name="Palabra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Palabra" nillable="true" type="tns:Palabra" />
 </xs:schema>

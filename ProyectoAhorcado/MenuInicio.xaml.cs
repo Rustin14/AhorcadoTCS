@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAhorcado.ServiciosAhorcado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,15 @@ namespace ProyectoAhorcado
     /// </summary>
     public partial class MenuInicio : Window
     {
-        public MenuInicio()
+
+        Usuario usuarioIniciado = new Usuario();
+
+        public MenuInicio(Usuario usuario)
         {
             InitializeComponent();
+            usuarioIniciado = usuario;
+            System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
+            nombreUsuarioLabel.Content = usuarioIniciado.nombre + " " + usuarioIniciado.apellidoPaterno;
         }
 
         private void BtnPerfil(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAhorcado.ServiciosAhorcado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,9 @@ namespace ProyectoAhorcado
     /// </summary>
     public partial class PerfilWindow : Window
     {
+
+        Usuario usuarioIniciado = new Usuario();
+
         public PerfilWindow()
         {
             InitializeComponent();
@@ -26,7 +30,7 @@ namespace ProyectoAhorcado
 
         private void BtnRegresar(object sender, RoutedEventArgs e)
         {
-            MenuInicio menuInicio = new MenuInicio();
+            MenuInicio menuInicio = new MenuInicio(usuarioIniciado);
             menuInicio.Show();
             this.Close();
         }

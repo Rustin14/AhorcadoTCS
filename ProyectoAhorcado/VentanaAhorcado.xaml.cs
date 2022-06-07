@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAhorcado.ServiciosAhorcado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,40 +11,38 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ProyectoAhorcado.ServiciosAhorcado;
 
 namespace ProyectoAhorcado
 {
     /// <summary>
-    /// Lógica de interacción para VentanaJuego.xaml
+    /// Lógica de interacción para VentanaAhorcado.xaml
     /// </summary>
-    public partial class VentanaJuego : Page
+    public partial class VentanaAhorcado : Window
     {
-
         ServiciosAhorcado.AhorcadoSVCClient servicios = new ServiciosAhorcado.AhorcadoSVCClient();
         int partesAhorcado = 0;
         String[] arrayLetras;
-        Boolean juegoFinalizado = false;
-        Boolean victoria = false;
-        Boolean derrota = false;
         String palabra;
+        Usuario usuarioIniciado = new Usuario();
+        List<String> letrasCombo = new List<String> {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+                "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
-        public VentanaJuego()
+        public VentanaAhorcado()
         {
             InitializeComponent();
-            llenarComponente("palabra");
-            servicios.iniciarJuego("palabra");
-            letraCombo.ItemsSource = new List<String> {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
-                "K", "L", "M", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+            List<Palabra> palabras = servicios.obtenerPalabras();
+            llenarComponente(palabras[0].nombre);
+            servicios.iniciarJuego(palabras[0].nombre);
+            descripcionText.Text = palabras[0].descripcion;
+            letraCombo.ItemsSource = letrasCombo;
         }
 
         public void llenarComponente(String palabra)
         {
             this.palabra = palabra;
             int numeroLetras = palabra.Length;
-            String [] array = new String[numeroLetras-1];
+            String[] array = new String[numeroLetras - 1];
             arrayLetras = array;
             for (int i = 0; i < numeroLetras; i++)
             {
@@ -65,12 +64,13 @@ namespace ProyectoAhorcado
 
         public void actualizarComponente(List<int> coincidencias, char letraEscogida)
         {
-            if (coincidencias.Count > 0)
+            //System.Diagnostics.Debug.WriteLine("Numero de coincidencias: " + coincidencias.Count());
+            if (coincidencias.Count() > 0)
             {
-                for (int i = 0; i < coincidencias.Count; i++)
+                for (int i = 0; i < coincidencias.Count(); i++)
                 {
                     String textboxName = "textbox" + coincidencias[i].ToString();
-                    System.Diagnostics.Debug.WriteLine(coincidencias[i]);
+                    System.Diagnostics.Debug.WriteLine("Este es el indice: " + coincidencias[i]);
                     for (var x = 0; x < VisualTreeHelper.GetChildrenCount(panelPalabra); x++)
                     {
                         TextBox child = (TextBox)VisualTreeHelper.GetChild(panelPalabra, x);
@@ -80,7 +80,8 @@ namespace ProyectoAhorcado
                         }
                     }
                 }
-            } else
+            }
+            else
             {
                 partesAhorcado++;
             }
@@ -91,19 +92,24 @@ namespace ProyectoAhorcado
             if (partesAhorcado == 1)
             {
                 cabezaAhorcado.Visibility = Visibility.Visible;
-            } else if (partesAhorcado == 2)
+            }
+            else if (partesAhorcado == 2)
             {
                 cuerpoAhorcado.Visibility = Visibility.Visible;
-            } else if (partesAhorcado == 3)
+            }
+            else if (partesAhorcado == 3)
             {
                 brazoDerecho.Visibility = Visibility.Visible;
-            } else if (partesAhorcado == 4)
+            }
+            else if (partesAhorcado == 4)
             {
                 brazoIzquierdo.Visibility = Visibility.Visible;
-            } else if (partesAhorcado == 5)
+            }
+            else if (partesAhorcado == 5)
             {
                 piernaDerecha.Visibility = Visibility.Visible;
-            } else if (partesAhorcado==6)
+            }
+            else if (partesAhorcado == 6)
             {
                 piernaIzquierda.Visibility = Visibility.Visible;
             }
@@ -114,23 +120,49 @@ namespace ProyectoAhorcado
             String letra = letraCombo.SelectedValue.ToString().ToLower();
             char letraEscogida = letra[0];
             List<int> coincidencias = servicios.checarLetra(letraEscogida);
-            validarJuego();
+            letrasCombo.Remove(letraEscogida.ToString().ToUpper());
+            letraCombo.ItemsSource = letrasCombo;
+            letraCombo.Items.Refresh();
             actualizarComponente(coincidencias, letraEscogida);
             actualizarAhorcado();
+            validarJuego();
         }
 
         private void validarJuego()
         {
-            if (juegoFinalizado == true && partesAhorcado == 6)
+            int contadorVictoria = 0;
+            if (partesAhorcado == 6)
             {
-                derrota = true;
-            } else if (juegoFinalizado == true && partesAhorcado < 6)
+                finalizadoRectangulo.Visibility = Visibility.Visible;
+                derrotaLabel.Visibility = Visibility.Visible;
+                FinalizadoModal modal = new FinalizadoModal("¡DERROTA!");
+                modal.ShowDialog();
+                MenuInicio menuInicio = new MenuInicio(usuarioIniciado);
+                menuInicio.Show();
+                this.Close();
+            }
+            else if (partesAhorcado < 6)
             {
-                victoria = true;
-            } 
+                for (var x = 0; x < VisualTreeHelper.GetChildrenCount(panelPalabra); x++)
+                {
+                    TextBox child = (TextBox)VisualTreeHelper.GetChild(panelPalabra, x);
+                    if (!string.IsNullOrWhiteSpace(child.Text))
+                    {
+                        contadorVictoria++;
+                    }
+                }
+                if (contadorVictoria == palabra.Count())
+                {
+                    finalizadoRectangulo.Visibility = Visibility.Visible;
+                    victoriaLabel.Visibility = Visibility.Visible;
+                    FinalizadoModal modal = new FinalizadoModal("¡VICTORIA!");
+                    modal.ShowDialog();
+                    MenuInicio menuInicio = new MenuInicio(usuarioIniciado);
+                    menuInicio.Show();
+                    this.Close();
+                }
+            }
+
         }
-
-
     }
-
 }

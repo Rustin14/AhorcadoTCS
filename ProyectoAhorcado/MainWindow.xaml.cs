@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAhorcado.ServiciosAhorcado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,41 @@ namespace ProyectoAhorcado
             InitializeComponent();
         }
 
+        ServiciosAhorcado.AhorcadoSVCClient client = new ServiciosAhorcado.AhorcadoSVCClient();
+        RespuestaLogin respuesta = new RespuestaLogin();
+        Usuario usuarioIniciado = new Usuario();
+
+        private void iniciarSesion ()
+        {
+            if (!String.IsNullOrWhiteSpace(emailTextBox.Text) && !String.IsNullOrWhiteSpace(contrasenaBox.Password))
+            {
+                string email = emailTextBox.Text;
+                string password = contrasenaBox.Password;
+
+                respuesta = client.LogIn(email, password);
+                if (respuesta.UsuarioCorrecto == true)
+                {
+                    usuarioIniciado = respuesta.InformacionUsuario;
+                    System.Diagnostics.Debug.WriteLine(usuarioIniciado.nombre);
+                    MenuInicio menuInicio = new MenuInicio(usuarioIniciado);
+                    menuInicio.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MensajesAlerta alerta = new MensajesAlerta();
+                    alerta.mensajeAlerta(respuesta.mensaje, "Inicio de sesión");
+                }
+            } else
+            {
+                MensajesAlerta alerta = new MensajesAlerta();
+                alerta.mensajeAlerta("No dejar campos vacíos.", "Inicio de sesión");
+            }
+        }
+
         private void BtnIngresar(object sender, RoutedEventArgs e)
         {
-            MenuInicio menuInicio = new MenuInicio();
-            menuInicio.Show();
-            this.Close();
+            iniciarSesion();
         }
 
         private void BtnRegistrar(object sender, RoutedEventArgs e)

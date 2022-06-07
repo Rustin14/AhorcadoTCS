@@ -16,9 +16,10 @@ namespace ServiciosAhorcado.Modelo.DAO
             MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
             if (conexionDB != null)
             {
-                string query = "SELECT * FROM usuario WHERE correoElectronico = @email;";
+                string query = "SELECT * FROM usuario WHERE correoElectronico = @email and contrasena = @password;";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
                 mySqlCommand.Parameters.AddWithValue("@email", username);
+                mySqlCommand.Parameters.AddWithValue("@password", password);
                 mySqlCommand.Prepare();
                 MySqlDataReader respuestaBD = null;
                 try
@@ -36,13 +37,14 @@ namespace ServiciosAhorcado.Modelo.DAO
                     respuesta.UsuarioCorrecto = true;
                     respuesta.mensaje = "Consulta realizada correctamente.";
                     Usuario usuario = new Usuario();
-                    usuario.correoElectronico = (respuestaBD.IsDBNull(0) ? "" : respuestaBD.GetString(0));
-                    usuario.nombre = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(1));
-                    usuario.apellidoPaterno = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2));
-                    usuario.apellidoMaterno = (respuestaBD.IsDBNull(3) ? "" : respuestaBD.GetString(3));
+                    usuario.idUsuario = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
+                    usuario.correoElectronico = (respuestaBD.IsDBNull(0) ? "" : respuestaBD.GetString(1));
+                    usuario.nombre = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(2));
+                    usuario.apellidoPaterno = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(3));
+                    usuario.apellidoMaterno = (respuestaBD.IsDBNull(3) ? "" : respuestaBD.GetString(4));
                     DateTime dateTime = DateTime.Now;
-                    usuario.fechaNacimiento = (respuestaBD.IsDBNull(4) ? dateTime : respuestaBD.GetDateTime(4));
-                    usuario.contrasena = (respuestaBD.IsDBNull(5) ? "" : respuestaBD.GetString(5));
+                    usuario.fechaNacimiento = (respuestaBD.IsDBNull(4) ? dateTime : respuestaBD.GetDateTime(5));
+                    usuario.contrasena = (respuestaBD.IsDBNull(5) ? "" : respuestaBD.GetString(6));
                     respuesta.InformacionUsuario = usuario;
 
                 }
@@ -50,7 +52,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 {
                     // Usuario no existe con esas credenciales
                     respuesta.UsuarioCorrecto = false;
-                    respuesta.mensaje = "Usuario y/o contraseña incorrectos...";
+                    respuesta.mensaje = "Usuario y/o contraseña incorrectos.";
 
                 }
             }

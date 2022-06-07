@@ -20,5 +20,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         void iniciarJuego(String palabra);
+
+        [OperationContract]
+        List<Palabra> obtenerPalabras();
     }
 }

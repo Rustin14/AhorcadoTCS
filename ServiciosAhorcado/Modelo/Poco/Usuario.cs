@@ -8,6 +8,8 @@ namespace ServiciosAhorcado.Modelo.Poco
     public class Usuario
     {
 
+        public int idUsuario { get; set; }
+
         public String correoElectronico { get; set; }
 
         public String nombre { get; set; }

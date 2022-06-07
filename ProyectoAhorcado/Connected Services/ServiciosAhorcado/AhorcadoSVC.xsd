@@ -44,4 +44,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="obtenerPalabras">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPalabrasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPalabrasResult" nillable="true" type="q4:ArrayOfPalabra" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

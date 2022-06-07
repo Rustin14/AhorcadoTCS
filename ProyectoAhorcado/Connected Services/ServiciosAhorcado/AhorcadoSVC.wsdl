@@ -26,6 +26,12 @@
   <wsdl:message name="IAhorcadoSVC_iniciarJuego_OutputMessage">
     <wsdl:part name="parameters" element="tns:iniciarJuegoResponse" />
   </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerPalabras_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerPalabras" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerPalabras_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerPalabrasResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAhorcadoSVC">
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogIn" message="tns:IAhorcadoSVC_LogIn_InputMessage" />
@@ -38,6 +44,10 @@
     <wsdl:operation name="iniciarJuego">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/iniciarJuego" message="tns:IAhorcadoSVC_iniciarJuego_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/iniciarJuegoResponse" message="tns:IAhorcadoSVC_iniciarJuego_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPalabras">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabras" message="tns:IAhorcadoSVC_obtenerPalabras_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabrasResponse" message="tns:IAhorcadoSVC_obtenerPalabras_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAhorcadoSVC" type="tns:IAhorcadoSVC">
@@ -62,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="iniciarJuego">
       <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/iniciarJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPalabras">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/obtenerPalabras" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

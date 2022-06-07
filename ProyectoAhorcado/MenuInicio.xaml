@@ -9,16 +9,12 @@
     <Grid>
         <Rectangle HorizontalAlignment="Center" Height="327" Margin="0,74,0,0" Stroke="White" VerticalAlignment="Top" Width="307" Fill="#FF8A8686"/>
 
-        <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,92,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold">
-            <Label.Effect>
-                <DropShadowEffect/>
-            </Label.Effect>
-        </Label>
-        <Button Content="Crear nueva partida" HorizontalAlignment="Left" Margin="126,0,0,0" VerticalAlignment="Center" FontSize="22" Visibility="Visible" BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold"/>
-        <Button Content="Unirse a una partida" HorizontalAlignment="Left" Margin="123,270,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Bold"/>
-        <Button Content="Salir" HorizontalAlignment="Center" Margin="0,335,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSalir" Width="58" FontWeight="Bold"/>
-        <Label Content="Perfil Usuario" HorizontalAlignment="Left" Margin="277,14,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Height="45" Width="47" BorderBrush="White" Click="BtnPerfil">
+        <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,92,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
+        <Button Content="Crear nueva partida" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" FontFamily="Roboto"/>
+        <Button Content="Unirse a una partida" HorizontalAlignment="Left" Margin="122,244,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="Roboto"/>
+        <Button Content="Salir" HorizontalAlignment="Center" Margin="0,309,0,0" VerticalAlignment="Top" FontSize="22" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSalir" Width="58" FontWeight="Bold" FontFamily="Roboto"/>
+        <Label x:Name="nombreUsuarioLabel" HorizontalAlignment="Left" Margin="313,25,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Roboto" Height="25" Width="127"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="275,20,0,0" VerticalAlignment="Top" Height="35" Width="35" BorderBrush="White" Click="BtnPerfil">
             <Button.Background>
                 <ImageBrush ImageSource="/Imagenes/perfil icono.png"/>
             </Button.Background>

@@ -13,7 +13,7 @@ namespace ServiciosAhorcado.Modelo
 
         private static string PORT = "3306";
 
-        private static string DATABASE = "ahorcado";
+        private static string DATABASE = "ahorcados";
 
         private static string DB_USER = "root";
 
