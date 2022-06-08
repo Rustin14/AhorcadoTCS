@@ -24,6 +24,13 @@ namespace ServiciosAhorcado
             return respuesta;
         }
 
+        public Mensaje RegistrarUsuario(Usuario usuario)
+        {
+            Mensaje mensaje = new Mensaje();
+            mensaje = UsuarioDAO.insertarUsuario(usuario);
+            return mensaje;
+        }
+
         public List<int> checarLetra(char letra)
         {
             List<int> coincidencias = GameUtil.verificarLetra(letra);

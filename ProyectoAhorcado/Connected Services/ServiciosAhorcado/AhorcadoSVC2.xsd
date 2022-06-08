@@ -15,10 +15,20 @@
       <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="correoElectronico" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:complexType name="Mensaje">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Error" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MensajeRespuesta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filasAfectadas" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mensaje" nillable="true" type="tns:Mensaje" />
   <xs:complexType name="ArrayOfPalabra">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Palabra" nillable="true" type="tns:Palabra" />

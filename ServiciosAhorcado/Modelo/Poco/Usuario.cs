@@ -20,6 +20,8 @@ namespace ServiciosAhorcado.Modelo.Poco
 
         public DateTime fechaNacimiento { get; set; }
 
+        public string nombreUsuario { get; set; }
+
         public String contrasena { get; set; }
 
 

@@ -5,29 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoAhorcado"
         mc:Ignorable="d"
-        Title="RegistroWindow" Height="450" Width="500">
-    <Grid>
-        <Label x:Name="ventanaLabel" Content="REGISTRO" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="38,83,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="247,83,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="nombreTextBox" HorizontalAlignment="Left" Margin="38,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" BorderBrush="{x:Null}"/>
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="38,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="Black"/>
-        <TextBox x:Name="apellidosTextBox" HorizontalAlignment="Left" Margin="252,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" BorderBrush="{x:Null}"/>
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="252,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="Black"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="247,185,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Margin="38,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" BorderBrush="{x:Null}"/>
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="38,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="Black"/>
-        <TextBox x:Name="nombreUsuarioTextBox" HorizontalAlignment="Left" Margin="252,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16" BorderBrush="{x:Null}"/>
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="252,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="Black"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="40,283,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Confirmar contraseña" HorizontalAlignment="Left" Margin="249,283,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="40,340,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="Black"/>
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="254,340,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="Black"/>
-        <PasswordBox x:Name="contrasenaBox" HorizontalAlignment="Left" Margin="41,317,0,0" VerticalAlignment="Top" Width="138" BorderBrush="{x:Null}" FontSize="16"/>
-        <PasswordBox x:Name="confirmarContrasenaBox" HorizontalAlignment="Left" Margin="255,317,0,0" VerticalAlignment="Top" Width="138" BorderBrush="{x:Null}" FontSize="16"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="209,373,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="76" Click="BtnCancelar"/>
-        <Button x:Name="registrarButton" Content="Registrar" HorizontalAlignment="Left" Margin="330,373,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="81" Click="BtnRegistrar"/>
+        Title="RegistroWindow" Height="450" Width="452">
+    <Grid Margin="0,0,0,-6">
+        <Label x:Name="ventanaLabel" Content="REGISTRO" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Roboto"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="42,101,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
+        <Label Content="Apellido paterno" HorizontalAlignment="Left" Margin="167,101,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
+        <TextBox x:Name="nombreTextBox" HorizontalAlignment="Left" Margin="42,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" FontSize="16" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="apellidoPTextBox" HorizontalAlignment="Left" Margin="173,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="16" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="42,175,0,0" VerticalAlignment="Top" FontFamily="Roboto" RenderTransformOrigin="0.293,0.515"/>
+        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="250,175,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Margin="42,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="140" FontSize="16" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="nombreUsuarioTextBox" HorizontalAlignment="Left" Margin="254,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="140" FontSize="16" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="42,252,0,0" VerticalAlignment="Top" FontFamily="Roboto" RenderTransformOrigin="0.379,0.494"/>
+        <Label Content="Confirmar contraseña" HorizontalAlignment="Left" Margin="250,252,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
+        <PasswordBox x:Name="contrasenaBox" HorizontalAlignment="Left" Margin="42,281,0,0" VerticalAlignment="Top" Width="138" BorderBrush="Black" FontSize="16" BorderThickness="0,0,0,1"/>
+        <PasswordBox x:Name="confirmarContrasenaBox" HorizontalAlignment="Left" Margin="256,281,0,0" VerticalAlignment="Top" Width="138" BorderBrush="Black" FontSize="16" BorderThickness="0,0,0,1"/>
+        <Button x:Name="cancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="213,363,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="76" Click="BtnCancelar"/>
+        <Button x:Name="registrarButton" Content="Registrar" HorizontalAlignment="Left" Margin="319,363,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="81" Click="BtnRegistrar"/>
+        <Label Content="Apellido materno" HorizontalAlignment="Left" Margin="298,101,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
+        <TextBox x:Name="apellidoMTextBox" HorizontalAlignment="Left" Margin="304,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="16" BorderBrush="Black" BorderThickness="0,0,0,1"/>
 
     </Grid>
 </Window>

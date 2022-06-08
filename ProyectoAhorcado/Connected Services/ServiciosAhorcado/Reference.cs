@@ -115,7 +115,13 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         private System.DateTime fechaNacimientoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreUsuarioField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -193,6 +199,19 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                if ((this.idUsuarioField.Equals(value) != true)) {
+                    this.idUsuarioField = value;
+                    this.RaisePropertyChanged("idUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string nombre {
             get {
                 return this.nombreField;
@@ -201,6 +220,96 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
                 if ((object.ReferenceEquals(this.nombreField, value) != true)) {
                     this.nombreField = value;
                     this.RaisePropertyChanged("nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreUsuario {
+            get {
+                return this.nombreUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreUsuarioField, value) != true)) {
+                    this.nombreUsuarioField = value;
+                    this.RaisePropertyChanged("nombreUsuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mensaje", Namespace="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco")]
+    [System.SerializableAttribute()]
+    public partial class Mensaje : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeRespuestaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int filasAfectadasField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Error {
+            get {
+                return this.ErrorField;
+            }
+            set {
+                if ((this.ErrorField.Equals(value) != true)) {
+                    this.ErrorField = value;
+                    this.RaisePropertyChanged("Error");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MensajeRespuesta {
+            get {
+                return this.MensajeRespuestaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeRespuestaField, value) != true)) {
+                    this.MensajeRespuestaField = value;
+                    this.RaisePropertyChanged("MensajeRespuesta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int filasAfectadas {
+            get {
+                return this.filasAfectadasField;
+            }
+            set {
+                if ((this.filasAfectadasField.Equals(value) != true)) {
+                    this.filasAfectadasField = value;
+                    this.RaisePropertyChanged("filasAfectadas");
                 }
             }
         }
@@ -302,6 +411,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/LogIn", ReplyAction="http://tempuri.org/IAhorcadoSVC/LogInResponse")]
         System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.RespuestaLogin> LogInAsync(string username, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/RegistrarUsuario", ReplyAction="http://tempuri.org/IAhorcadoSVC/RegistrarUsuarioResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje RegistrarUsuario(ProyectoAhorcado.ServiciosAhorcado.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/RegistrarUsuario", ReplyAction="http://tempuri.org/IAhorcadoSVC/RegistrarUsuarioResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> RegistrarUsuarioAsync(ProyectoAhorcado.ServiciosAhorcado.Usuario usuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/checarLetra", ReplyAction="http://tempuri.org/IAhorcadoSVC/checarLetraResponse")]
         System.Collections.Generic.List<int> checarLetra(char letra);
         
@@ -354,6 +469,14 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.RespuestaLogin> LogInAsync(string username, string password) {
             return base.Channel.LogInAsync(username, password);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje RegistrarUsuario(ProyectoAhorcado.ServiciosAhorcado.Usuario usuario) {
+            return base.Channel.RegistrarUsuario(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> RegistrarUsuarioAsync(ProyectoAhorcado.ServiciosAhorcado.Usuario usuario) {
+            return base.Channel.RegistrarUsuarioAsync(usuario);
         }
         
         public System.Collections.Generic.List<int> checarLetra(char letra) {

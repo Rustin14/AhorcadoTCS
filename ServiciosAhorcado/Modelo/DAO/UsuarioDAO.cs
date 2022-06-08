@@ -72,14 +72,15 @@ namespace ServiciosAhorcado.Modelo.DAO
 
             if (conexionBD != null)
             {
-                string query = "INSERT INTO usuario (correoElectronico, nombre, aPaterno, aMaterno, fechaNacimiento, contrasena) " +
-                    "VALUES (@email, @nombre, @aPaterno, @aMaterno, @fechaNacimiento, @contrasena);";
+                string query = "INSERT INTO usuario (correoElectronico, nombre, aPaterno, aMaterno, fechaNacimiento, nombreUsuario, contrasena) " +
+                    "VALUES (@email, @nombre, @aPaterno, @aMaterno, @fechaNacimiento, @nombreUsuario, @contrasena);";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
                 mySqlCommand.Parameters.AddWithValue("@email", usuarioRegistro.correoElectronico);
                 mySqlCommand.Parameters.AddWithValue("@nombre", usuarioRegistro.nombre);
                 mySqlCommand.Parameters.AddWithValue("@aPaterno", usuarioRegistro.apellidoPaterno);
                 mySqlCommand.Parameters.AddWithValue("@aMaterno", usuarioRegistro.apellidoMaterno);
                 mySqlCommand.Parameters.AddWithValue("@fechaNacimiento", usuarioRegistro.fechaNacimiento);
+                mySqlCommand.Parameters.AddWithValue("@nombreUsuario", usuarioRegistro.nombreUsuario);
                 mySqlCommand.Parameters.AddWithValue("@contrasena", usuarioRegistro.contrasena);
                 mySqlCommand.Prepare();
                 try

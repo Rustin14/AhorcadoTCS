@@ -14,6 +14,12 @@
   <wsdl:message name="IAhorcadoSVC_LogIn_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogInResponse" />
   </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_RegistrarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_RegistrarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="IAhorcadoSVC_checarLetra_InputMessage">
     <wsdl:part name="parameters" element="tns:checarLetra" />
   </wsdl:message>
@@ -37,6 +43,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogIn" message="tns:IAhorcadoSVC_LogIn_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogInResponse" message="tns:IAhorcadoSVC_LogIn_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/RegistrarUsuario" message="tns:IAhorcadoSVC_RegistrarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/RegistrarUsuarioResponse" message="tns:IAhorcadoSVC_RegistrarUsuario_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="checarLetra">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/checarLetra" message="tns:IAhorcadoSVC_checarLetra_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/checarLetraResponse" message="tns:IAhorcadoSVC_checarLetra_OutputMessage" />
@@ -54,6 +64,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="LogIn">
       <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/RegistrarUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

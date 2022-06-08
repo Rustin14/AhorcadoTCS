@@ -16,6 +16,9 @@ namespace ServiciosAhorcado
         RespuestaLogin LogIn(String username, String password);
 
         [OperationContract]
+        Mensaje RegistrarUsuario(Usuario usuario);
+
+        [OperationContract]
         List<int> checarLetra(char letra);
 
         [OperationContract]
