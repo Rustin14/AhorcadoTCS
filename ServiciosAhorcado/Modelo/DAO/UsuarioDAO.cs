@@ -121,12 +121,13 @@ namespace ServiciosAhorcado.Modelo.DAO
             if (conexionBD != null)
             {
                 string query = "UPDATE usuario SET ,nombre = @nombre, aPaterno = @aPaterno, aMaterno = @aMaterno, fechaNacimiento = @fechaNacimiento," +
-                    "contrasena = @contrasena, WHERE correoElectronico = @email";
+                    "nombreUsuario = @nombreUsuario, contrasena = @contrasena WHERE correoElectronico = @email";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
                 mySqlCommand.Parameters.AddWithValue("@nombre", nuevoDatosUsuario.nombre);
                 mySqlCommand.Parameters.AddWithValue("@aPaterno", nuevoDatosUsuario.apellidoPaterno);
                 mySqlCommand.Parameters.AddWithValue("@aMaterno", nuevoDatosUsuario.apellidoMaterno);
                 mySqlCommand.Parameters.AddWithValue("@fechaNacimiento", nuevoDatosUsuario.fechaNacimiento);
+                mySqlCommand.Parameters.AddWithValue("@nombreUsuario", nuevoDatosUsuario.nombreUsuario);
                 mySqlCommand.Parameters.AddWithValue("@contrasena", nuevoDatosUsuario.contrasena);
                 mySqlCommand.Parameters.AddWithValue("@email", nuevoDatosUsuario.correoElectronico);
                 mySqlCommand.Prepare();
