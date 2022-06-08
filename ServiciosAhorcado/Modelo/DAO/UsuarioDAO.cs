@@ -113,5 +113,52 @@ namespace ServiciosAhorcado.Modelo.DAO
             return mensaje;
         }
 
+        public static Mensaje modificarUsuario(string correoUsuario, Usuario nuevoDatosUsuario)
+        {
+            Mensaje mensaje = new Mensaje();
+            MySqlConnection conexionBD = ConnectionUtil.obtenerConexion();
+            int filasAfectadas = 0;
+            if (conexionBD != null)
+            {
+                string query = "UPDATE usuario SET ,nombre = @nombre, aPaterno = @aPaterno, aMaterno = @aMaterno, fechaNacimiento = @fechaNacimiento," +
+                    "contrasena = @contrasena, WHERE correoElectronico = @email";
+                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
+                mySqlCommand.Parameters.AddWithValue("@nombre", nuevoDatosUsuario.nombre);
+                mySqlCommand.Parameters.AddWithValue("@aPaterno", nuevoDatosUsuario.apellidoPaterno);
+                mySqlCommand.Parameters.AddWithValue("@aMaterno", nuevoDatosUsuario.apellidoMaterno);
+                mySqlCommand.Parameters.AddWithValue("@fechaNacimiento", nuevoDatosUsuario.fechaNacimiento);
+                mySqlCommand.Parameters.AddWithValue("@contrasena", nuevoDatosUsuario.contrasena);
+                mySqlCommand.Parameters.AddWithValue("@email", nuevoDatosUsuario.correoElectronico);
+                mySqlCommand.Prepare();
+                try
+                {
+                    filasAfectadas = mySqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    mensaje.Error = true;
+                    mensaje.MensajeRespuesta = ex.Message;
+                }
+                if (filasAfectadas > 0)
+                {
+                    mensaje.Error = false;
+                    mensaje.MensajeRespuesta = "Usuario insertado correctamente.";
+                    mensaje.filasAfectadas = filasAfectadas;
+                }
+                else
+                {
+                    mensaje.Error = true;
+                    mensaje.MensajeRespuesta = "Ocurrió un error, intente más tarde.";
+                }
+            }
+            else
+            {
+                mensaje.Error = true;
+                mensaje.MensajeRespuesta = "Por el momento no hay conexión a los servicios.";
+            }
+
+            return mensaje;
+        }
+
     }
 }
