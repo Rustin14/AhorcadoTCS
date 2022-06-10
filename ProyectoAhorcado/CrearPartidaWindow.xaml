@@ -1,0 +1,24 @@
+﻿<Window x:Class="ProyectoAhorcado.CrearPartidaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAhorcado"
+        mc:Ignorable="d"
+        Title="CrearPartidaWindow" Height="450" Width="450">
+    <Grid>
+        <Label x:Name="nombreUsuarioLabel" HorizontalAlignment="Left" Margin="285,24,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Roboto" Height="25" Width="127"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="238,19,0,0" VerticalAlignment="Top" Height="35" Width="35" BorderBrush="White">
+            <Button.Background>
+                <ImageBrush ImageSource="/Imagenes/perfil icono.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
+        <Rectangle HorizontalAlignment="Left" Height="235" Margin="96,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="270" Fill="Black"/>
+        <ComboBox x:Name="cbBoxCategoria" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Width="204" Height="32" Text="Selecciona una categoria" Foreground="Black"/>
+        <ComboBox x:Name="cbBoxPalabra" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" Width="204" Text="Selecciona una palabra" Height="31" FontSize="14" FontWeight="Normal" Background="Black" Foreground="Black"/>
+        <Button Content="Crear partida" HorizontalAlignment="Left" Height="34" Margin="285,375,0,0" VerticalAlignment="Top" Width="118" FontSize="18"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Height="34" Margin="162,375,0,0" VerticalAlignment="Top" Width="101" FontSize="18" Click="btnCancelar"/>
+
+    </Grid>
+</Window>

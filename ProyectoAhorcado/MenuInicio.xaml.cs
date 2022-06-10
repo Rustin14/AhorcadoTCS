@@ -42,5 +42,19 @@ namespace ProyectoAhorcado
         {
             this.Close();
         }
+
+        private void btnCrearPartida(object sender, RoutedEventArgs e)
+        {
+            CrearPartidaWindow crearPartidaWindow = new CrearPartidaWindow(usuarioIniciado);
+            crearPartidaWindow.Show();
+            this.Close();
+        }
+
+        private void btnUnirsePartida(object sender, RoutedEventArgs e)
+        {
+            PartidasDisponiblesWindow partidasDisponiblesWindow = new PartidasDisponiblesWindow();
+            partidasDisponiblesWindow.Show();
+            this.Close();
+        }
     }
 }

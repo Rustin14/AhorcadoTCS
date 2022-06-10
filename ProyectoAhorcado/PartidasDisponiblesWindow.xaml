@@ -1,0 +1,33 @@
+﻿<Window x:Class="ProyectoAhorcado.PartidasDisponiblesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAhorcado"
+        mc:Ignorable="d"
+        Title="PartidasDisponiblesWindow" Height="450" Width="450">
+    <Grid>
+        <Label x:Name="nombreUsuarioLabel" HorizontalAlignment="Left" Margin="303,26,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Roboto" Height="25" Width="127"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="256,21,0,0" VerticalAlignment="Top" Height="35" Width="35" BorderBrush="White">
+            <Button.Background>
+                <ImageBrush ImageSource="/Imagenes/perfil icono.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
+        <DataGrid x:Name="dtGridPartidas" Margin="71,127,71,60" Background="Black">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="dtGridSalaColumn" Header="Sala" Binding="{Binding idPartida}"  Width="100"/>
+                <DataGridTextColumn x:Name="dtGridCreadorColumn" Header="Creador" Width="150"/>
+            </DataGrid.Columns>
+                
+        </DataGrid>
+
+    </Grid>
+</Window>
