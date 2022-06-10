@@ -14,7 +14,7 @@
             </Button.Background>
         </Button>
         <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
-        <DataGrid x:Name="dtGridPartidas" Margin="71,127,71,60" Background="Black">
+        <DataGrid x:Name="dtGridPartidas" Margin="71,127,71,94" Background="Black">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Black"/>
@@ -26,8 +26,9 @@
                 <DataGridTextColumn x:Name="dtGridSalaColumn" Header="Sala" Binding="{Binding idPartida}"  Width="100"/>
                 <DataGridTextColumn x:Name="dtGridCreadorColumn" Header="Creador" Width="150"/>
             </DataGrid.Columns>
-                
+
         </DataGrid>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="225,380,0,0" VerticalAlignment="Top" FontSize="18" Width="83" Click="btnCancelar"/>
 
     </Grid>
 </Window>

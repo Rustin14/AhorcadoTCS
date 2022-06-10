@@ -52,7 +52,7 @@ namespace ProyectoAhorcado
 
         private void btnUnirsePartida(object sender, RoutedEventArgs e)
         {
-            PartidasDisponiblesWindow partidasDisponiblesWindow = new PartidasDisponiblesWindow();
+            PartidasDisponiblesWindow partidasDisponiblesWindow = new PartidasDisponiblesWindow(usuarioIniciado);
             partidasDisponiblesWindow.Show();
             this.Close();
         }
