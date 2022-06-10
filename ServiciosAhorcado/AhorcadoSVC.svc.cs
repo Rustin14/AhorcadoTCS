@@ -48,5 +48,12 @@ namespace ServiciosAhorcado
             palabras = PalabraDAO.ObtenerPalabras();
             return palabras;
         }
+
+        public List<Categoria> obtenerCategorias()
+        {
+            List<Categoria> categorias = new List<Categoria>();
+            categorias = CategoriaDAO.obtenerCategorias();
+            return categorias;
+        }
     }
 }

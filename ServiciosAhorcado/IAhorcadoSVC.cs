@@ -26,5 +26,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         List<Palabra> obtenerPalabras();
+
+        [OperationContract]
+        List<Categoria> obtenerCategorias();
     }
 }
