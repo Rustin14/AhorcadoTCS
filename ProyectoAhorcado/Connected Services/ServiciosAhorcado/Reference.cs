@@ -401,6 +401,208 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Categoria", Namespace="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco")]
+    [System.SerializableAttribute()]
+    public partial class Categoria : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCategoriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreCategoriaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCategoria {
+            get {
+                return this.idCategoriaField;
+            }
+            set {
+                if ((this.idCategoriaField.Equals(value) != true)) {
+                    this.idCategoriaField = value;
+                    this.RaisePropertyChanged("idCategoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreCategoria {
+            get {
+                return this.nombreCategoriaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreCategoriaField, value) != true)) {
+                    this.nombreCategoriaField = value;
+                    this.RaisePropertyChanged("nombreCategoria");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Partida", Namespace="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco")]
+    [System.SerializableAttribute()]
+    public partial class Partida : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int categoriaIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPartidaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idUsuarioRetadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int oportunidadesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int palabraIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha {
+            get {
+                return this.FechaField;
+            }
+            set {
+                if ((this.FechaField.Equals(value) != true)) {
+                    this.FechaField = value;
+                    this.RaisePropertyChanged("Fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int categoriaId {
+            get {
+                return this.categoriaIdField;
+            }
+            set {
+                if ((this.categoriaIdField.Equals(value) != true)) {
+                    this.categoriaIdField = value;
+                    this.RaisePropertyChanged("categoriaId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPartida {
+            get {
+                return this.idPartidaField;
+            }
+            set {
+                if ((this.idPartidaField.Equals(value) != true)) {
+                    this.idPartidaField = value;
+                    this.RaisePropertyChanged("idPartida");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                if ((this.idUsuarioField.Equals(value) != true)) {
+                    this.idUsuarioField = value;
+                    this.RaisePropertyChanged("idUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idUsuarioRetador {
+            get {
+                return this.idUsuarioRetadorField;
+            }
+            set {
+                if ((this.idUsuarioRetadorField.Equals(value) != true)) {
+                    this.idUsuarioRetadorField = value;
+                    this.RaisePropertyChanged("idUsuarioRetador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int oportunidades {
+            get {
+                return this.oportunidadesField;
+            }
+            set {
+                if ((this.oportunidadesField.Equals(value) != true)) {
+                    this.oportunidadesField = value;
+                    this.RaisePropertyChanged("oportunidades");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int palabraId {
+            get {
+                return this.palabraIdField;
+            }
+            set {
+                if ((this.palabraIdField.Equals(value) != true)) {
+                    this.palabraIdField = value;
+                    this.RaisePropertyChanged("palabraId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiciosAhorcado.IAhorcadoSVC")]
     public interface IAhorcadoSVC {
@@ -434,6 +636,24 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabras", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPalabrasResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Palabra>> obtenerPalabrasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerCategorias", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerCategoriasResponse")]
+        System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Categoria> obtenerCategorias();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerCategorias", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerCategoriasResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Categoria>> obtenerCategoriasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponibles", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponiblesResponse")]
+        System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Partida> obtenerPartidasDisponibles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponibles", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponiblesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Partida>> obtenerPartidasDisponiblesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/crearNuevaPartida", ReplyAction="http://tempuri.org/IAhorcadoSVC/crearNuevaPartidaResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje crearNuevaPartida(ProyectoAhorcado.ServiciosAhorcado.Partida partidaNueva);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/crearNuevaPartida", ReplyAction="http://tempuri.org/IAhorcadoSVC/crearNuevaPartidaResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> crearNuevaPartidaAsync(ProyectoAhorcado.ServiciosAhorcado.Partida partidaNueva);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -501,6 +721,30 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Palabra>> obtenerPalabrasAsync() {
             return base.Channel.obtenerPalabrasAsync();
+        }
+        
+        public System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Categoria> obtenerCategorias() {
+            return base.Channel.obtenerCategorias();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Categoria>> obtenerCategoriasAsync() {
+            return base.Channel.obtenerCategoriasAsync();
+        }
+        
+        public System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Partida> obtenerPartidasDisponibles() {
+            return base.Channel.obtenerPartidasDisponibles();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Partida>> obtenerPartidasDisponiblesAsync() {
+            return base.Channel.obtenerPartidasDisponiblesAsync();
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje crearNuevaPartida(ProyectoAhorcado.ServiciosAhorcado.Partida partidaNueva) {
+            return base.Channel.crearNuevaPartida(partidaNueva);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> crearNuevaPartidaAsync(ProyectoAhorcado.ServiciosAhorcado.Partida partidaNueva) {
+            return base.Channel.crearNuevaPartidaAsync(partidaNueva);
         }
     }
 }

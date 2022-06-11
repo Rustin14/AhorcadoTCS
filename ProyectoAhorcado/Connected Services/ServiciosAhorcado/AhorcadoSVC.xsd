@@ -70,4 +70,42 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="obtenerCategorias">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerCategoriasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerCategoriasResult" nillable="true" type="q7:ArrayOfCategoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPartidasDisponibles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPartidasDisponiblesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPartidasDisponiblesResult" nillable="true" type="q8:ArrayOfPartida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearNuevaPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="partidaNueva" nillable="true" type="q9:Partida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearNuevaPartidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="crearNuevaPartidaResult" nillable="true" type="q10:Mensaje" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

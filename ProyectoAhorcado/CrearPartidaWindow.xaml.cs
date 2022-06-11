@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAhorcado.ServiciosAhorcado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProyectoAhorcado.ServiciosAhorcado;
 
 namespace ProyectoAhorcado
 {
@@ -30,12 +30,6 @@ namespace ProyectoAhorcado
             usuarioIniciado = usuario;
             System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
             nombreUsuarioLabel.Content = usuarioIniciado.nombre + " " + usuarioIniciado.apellidoPaterno;
-        }
-
-        public void agregarCategorias()
-        {
-            //List<Categoria> categorias = new List<Categoria>();
-            //categorias = client.obtenerCategorias();
         }
 
         private void btnCancelar(object sender, RoutedEventArgs e)

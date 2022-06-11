@@ -38,13 +38,13 @@ namespace ServiciosAhorcado.Modelo.DAO
                     respuesta.mensaje = "Consulta realizada correctamente.";
                     Usuario usuario = new Usuario();
                     usuario.idUsuario = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
-                    usuario.correoElectronico = (respuestaBD.IsDBNull(0) ? "" : respuestaBD.GetString(1));
-                    usuario.nombre = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(2));
-                    usuario.apellidoPaterno = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(3));
-                    usuario.apellidoMaterno = (respuestaBD.IsDBNull(3) ? "" : respuestaBD.GetString(4));
+                    usuario.correoElectronico = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(1));
+                    usuario.nombre = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2));
+                    usuario.apellidoPaterno = (respuestaBD.IsDBNull(3) ? "" : respuestaBD.GetString(3));
+                    usuario.apellidoMaterno = (respuestaBD.IsDBNull(4) ? "" : respuestaBD.GetString(4));
                     DateTime dateTime = DateTime.Now;
-                    usuario.fechaNacimiento = (respuestaBD.IsDBNull(4) ? dateTime : respuestaBD.GetDateTime(5));
-                    usuario.contrasena = (respuestaBD.IsDBNull(5) ? "" : respuestaBD.GetString(6));
+                    usuario.fechaNacimiento = (respuestaBD.IsDBNull(5) ? dateTime : respuestaBD.GetDateTime(5));
+                    usuario.contrasena = (respuestaBD.IsDBNull(6) ? "" : respuestaBD.GetString(6));
                     respuesta.InformacionUsuario = usuario;
 
                 }

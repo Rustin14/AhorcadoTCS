@@ -214,16 +214,27 @@
     <None Include="Connected Services\ServiciosAhorcado\AhorcadoSVC3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.Categoria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.Mensaje.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.Palabra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.Partida.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.RespuestaLogin.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.Categoria.datasource" />
+    <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.Mensaje.datasource" />
+    <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.Palabra.datasource" />
+    <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.Partida.datasource" />
+    <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.RespuestaLogin.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -267,12 +278,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ServiciosAhorcado\ServiciosAhorcado.csproj">
-      <Project>{D248F1A6-C41D-4CDC-96E0-99CF435769BB}</Project>
-      <Name>ServiciosAhorcado</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

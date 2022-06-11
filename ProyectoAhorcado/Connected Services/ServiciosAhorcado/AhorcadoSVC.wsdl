@@ -38,6 +38,24 @@
   <wsdl:message name="IAhorcadoSVC_obtenerPalabras_OutputMessage">
     <wsdl:part name="parameters" element="tns:obtenerPalabrasResponse" />
   </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerCategorias_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCategorias" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerCategorias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCategoriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerPartidasDisponibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerPartidasDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerPartidasDisponibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerPartidasDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_crearNuevaPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearNuevaPartida" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_crearNuevaPartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearNuevaPartidaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAhorcadoSVC">
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogIn" message="tns:IAhorcadoSVC_LogIn_InputMessage" />
@@ -58,6 +76,18 @@
     <wsdl:operation name="obtenerPalabras">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabras" message="tns:IAhorcadoSVC_obtenerPalabras_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabrasResponse" message="tns:IAhorcadoSVC_obtenerPalabras_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCategorias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerCategorias" message="tns:IAhorcadoSVC_obtenerCategorias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerCategoriasResponse" message="tns:IAhorcadoSVC_obtenerCategorias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPartidasDisponibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponibles" message="tns:IAhorcadoSVC_obtenerPartidasDisponibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponiblesResponse" message="tns:IAhorcadoSVC_obtenerPartidasDisponibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearNuevaPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/crearNuevaPartida" message="tns:IAhorcadoSVC_crearNuevaPartida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/crearNuevaPartidaResponse" message="tns:IAhorcadoSVC_crearNuevaPartida_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAhorcadoSVC" type="tns:IAhorcadoSVC">
@@ -100,6 +130,33 @@
     </wsdl:operation>
     <wsdl:operation name="obtenerPalabras">
       <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/obtenerPalabras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCategorias">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/obtenerCategorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPartidasDisponibles">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/obtenerPartidasDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearNuevaPartida">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/crearNuevaPartida" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
