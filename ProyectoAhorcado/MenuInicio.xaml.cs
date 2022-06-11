@@ -1,4 +1,4 @@
-﻿using ServiciosAhorcado.Modelo.Poco;
+﻿using ProyectoAhorcado.ServiciosAhorcado;
 using System;
 using System.Collections.Generic;
 using System.Linq;

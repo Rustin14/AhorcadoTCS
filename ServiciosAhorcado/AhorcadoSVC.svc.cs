@@ -55,5 +55,20 @@ namespace ServiciosAhorcado
             categorias = CategoriaDAO.obtenerCategorias();
             return categorias;
         }
+
+        public List<Partida> obtenerPartidasDisponibles()
+        {
+            List<Partida> partidas = new List<Partida>();
+            partidas = PartidaDAO.obtenerPartidasDisponibles();
+            return partidas;
+        }
+
+        public Mensaje crearNuevaPartida(Partida partidaNueva)
+        {
+            Mensaje mensaje = new Mensaje();
+            mensaje = PartidaDAO.crearPartida(partidaNueva);
+            return mensaje;
+        }
+
     }
 }

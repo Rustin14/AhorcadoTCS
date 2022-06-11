@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ServiciosAhorcado.Modelo.Poco;
+using ProyectoAhorcado.ServiciosAhorcado;
 
 namespace ProyectoAhorcado
 {
@@ -34,7 +34,7 @@ namespace ProyectoAhorcado
 
         public void agregarCategorias()
         {
-            List<Categoria> categorias = new List<Categoria>();
+            //List<Categoria> categorias = new List<Categoria>();
             //categorias = client.obtenerCategorias();
         }
 

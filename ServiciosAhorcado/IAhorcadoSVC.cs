@@ -29,5 +29,11 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         List<Categoria> obtenerCategorias();
+
+        [OperationContract]
+        List<Partida> obtenerPartidasDisponibles();
+
+        [OperationContract]
+        Mensaje crearNuevaPartida(Partida partidaNueva);
     }
 }
