@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProyectoAhorcado.ServiciosAhorcado;
+using ServiciosAhorcado.Modelo.Poco;
 
 namespace ProyectoAhorcado
 {
@@ -22,12 +22,20 @@ namespace ProyectoAhorcado
     {
 
         Usuario usuarioIniciado = new Usuario();
+        ServiciosAhorcado.AhorcadoSVCClient client = new ServiciosAhorcado.AhorcadoSVCClient();
+
         public CrearPartidaWindow(Usuario usuario)
         {
             InitializeComponent();
             usuarioIniciado = usuario;
             System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
             nombreUsuarioLabel.Content = usuarioIniciado.nombre + " " + usuarioIniciado.apellidoPaterno;
+        }
+
+        public void agregarCategorias()
+        {
+            List<Categoria> categorias = new List<Categoria>();
+            //categorias = client.obtenerCategorias();
         }
 
         private void btnCancelar(object sender, RoutedEventArgs e)

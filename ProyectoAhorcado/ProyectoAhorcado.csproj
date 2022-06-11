@@ -268,5 +268,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiciosAhorcado\ServiciosAhorcado.csproj">
+      <Project>{D248F1A6-C41D-4CDC-96E0-99CF435769BB}</Project>
+      <Name>ServiciosAhorcado</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
