@@ -23,9 +23,15 @@ namespace ProyectoAhorcado
 
         Usuario usuarioIniciado = new Usuario();
 
-        public PerfilWindow()
+        public PerfilWindow(Usuario usuario)
         {
             InitializeComponent();
+            usuarioIniciado = usuario;
+            System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
+            labelNombre.Content = usuarioIniciado.nombre;
+            labelApellidos.Content = usuarioIniciado.apellidoPaterno + " " + usuarioIniciado.apellidoPaterno;
+            labelNombreUsuario.Content = usuarioIniciado.nombreUsuario;
+            labelEmail.Content = usuarioIniciado.correoElectronico;
         }
 
         private void BtnRegresar(object sender, RoutedEventArgs e)

@@ -23,6 +23,9 @@ namespace ProyectoAhorcado
 
         Usuario usuarioIniciado = new Usuario();
         ServiciosAhorcado.AhorcadoSVCClient client = new ServiciosAhorcado.AhorcadoSVCClient();
+        List<Palabra> palabras = new List<Palabra>();
+        List<string> nombresPalabras = new List<string>();
+        List<Categoria> categorias = new List<Categoria>();
 
         public CrearPartidaWindow(Usuario usuario)
         {
@@ -30,6 +33,24 @@ namespace ProyectoAhorcado
             usuarioIniciado = usuario;
             System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
             nombreUsuarioLabel.Content = usuarioIniciado.nombre + " " + usuarioIniciado.apellidoPaterno;
+            obtenerCategorias();
+            obtenerPalabras();
+        }
+
+        public void obtenerCategorias()
+        {
+            categorias = client.obtenerCategorias();
+            List<string> nombresCategorias = new List<string>();
+            for(int i=0; i<categorias.Count; i++)
+            {
+                nombresCategorias.Add(categorias[i].nombreCategoria);
+            }
+            cbBoxCategoria.ItemsSource = nombresCategorias;
+        }
+
+        public void obtenerPalabras()
+        {
+            palabras = client.obtenerPalabras();
         }
 
         private void btnCancelar(object sender, RoutedEventArgs e)
@@ -37,6 +58,29 @@ namespace ProyectoAhorcado
             MenuInicio menuInicio = new MenuInicio(usuarioIniciado);
             menuInicio.Show();
             this.Close();
+        }
+
+        private void cbBoxSeleccion(object sender, SelectionChangedEventArgs e)
+        {
+            nombresPalabras.Clear();
+            int idCategoriaSeleccionada = 0;
+            string categoriaSeleccionada = (string) cbBoxCategoria.SelectedItem;
+            for (int i = 0; i < categorias.Count; i++)
+            {
+                if (categorias[i].nombreCategoria.Equals(categoriaSeleccionada))
+                {
+                    idCategoriaSeleccionada = categorias[i].idCategoria;
+                    break;
+                }
+            }
+            for (int i = 0; i < palabras.Count; i++)
+            {
+                if (palabras[i].categoria == idCategoriaSeleccionada)
+                {
+                    nombresPalabras.Add(palabras[i].nombre);
+                }
+            }
+            cbBoxPalabra.ItemsSource = nombresPalabras;
         }
     }
 }

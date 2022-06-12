@@ -15,7 +15,7 @@
         </Button>
         <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
         <Rectangle HorizontalAlignment="Left" Height="235" Margin="96,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="270" Fill="Black"/>
-        <ComboBox x:Name="cbBoxCategoria" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Width="204" Height="32" Text="Selecciona una categoria" Foreground="Black"/>
+        <ComboBox x:Name="cbBoxCategoria" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Width="204" Height="32" Text="Selecciona una categoria" Foreground="Black" SelectionChanged="cbBoxSeleccion"/>
         <ComboBox x:Name="cbBoxPalabra" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" Width="204" Text="Selecciona una palabra" Height="31" FontSize="14" FontWeight="Normal" Background="Black" Foreground="Black"/>
         <Button Content="Crear partida" HorizontalAlignment="Left" Height="34" Margin="285,375,0,0" VerticalAlignment="Top" Width="118" FontSize="18"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Height="34" Margin="162,375,0,0" VerticalAlignment="Top" Width="101" FontSize="18" Click="btnCancelar"/>

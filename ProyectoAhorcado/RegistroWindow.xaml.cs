@@ -131,8 +131,8 @@ namespace ProyectoAhorcado
             }
             else
             {
-                PerfilWindow perfilWindow = new PerfilWindow();
-                perfilWindow.Show();
+                //PerfilWindow perfilWindow = new PerfilWindow();
+                //perfilWindow.Show();
                 this.Close();
             }
         }

@@ -33,7 +33,7 @@ namespace ProyectoAhorcado
 
         private void BtnPerfil(object sender, RoutedEventArgs e)
         {
-            PerfilWindow perfilWindow = new PerfilWindow();
+            PerfilWindow perfilWindow = new PerfilWindow(usuarioIniciado);
             perfilWindow.Show();
             this.Close();
         }

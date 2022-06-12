@@ -334,7 +334,7 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string categoriaField;
+        private int categoriaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string descripcionField;
@@ -353,12 +353,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string categoria {
+        public int categoria {
             get {
                 return this.categoriaField;
             }
             set {
-                if ((object.ReferenceEquals(this.categoriaField, value) != true)) {
+                if ((this.categoriaField.Equals(value) != true)) {
                     this.categoriaField = value;
                     this.RaisePropertyChanged("categoria");
                 }

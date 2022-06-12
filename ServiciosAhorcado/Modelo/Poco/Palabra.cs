@@ -8,7 +8,7 @@ namespace ServiciosAhorcado.Modelo.Poco
     public class Palabra
     {
 
-        public String categoria { get; set; }
+        public int categoria { get; set; }
 
         public String nombre { get; set; }
 

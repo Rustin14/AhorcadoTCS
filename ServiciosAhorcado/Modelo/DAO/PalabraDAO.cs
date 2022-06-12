@@ -30,10 +30,10 @@ namespace ServiciosAhorcado.Modelo.DAO
                 {
                     Console.WriteLine(ex.Message);
                 }
-                if (respuestaBD.Read())
+                while (respuestaBD.Read())
                 {
                     Palabra palabra = new Palabra();
-                    palabra.categoria = (respuestaBD.IsDBNull(0) ? "" : respuestaBD.GetString(0));
+                    palabra.categoria = (respuestaBD.IsDBNull(3) ? 0 : respuestaBD.GetInt32(3));
                     palabra.nombre = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(1));
                     palabra.descripcion = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2));
                     palabras.Add(palabra);

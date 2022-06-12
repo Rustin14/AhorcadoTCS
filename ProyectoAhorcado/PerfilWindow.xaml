@@ -12,10 +12,10 @@
         <Label Content="Apellidos" HorizontalAlignment="Left" Margin="311,90,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="49,183,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="311,183,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Nombre(s)" HorizontalAlignment="Left" Margin="49,129,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Apellido(s)" HorizontalAlignment="Left" Margin="311,129,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="NombreUsuario" HorizontalAlignment="Left" Margin="49,231,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="email@example.com" HorizontalAlignment="Left" Margin="311,231,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelNombre" Content="Nombre(s)" HorizontalAlignment="Left" Margin="49,129,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelApellidos" Content="Apellido(s)" HorizontalAlignment="Left" Margin="311,129,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelNombreUsuario" Content="NombreUsuario" HorizontalAlignment="Left" Margin="49,231,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelEmail" Content="email@example.com" HorizontalAlignment="Left" Margin="311,231,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Button Content="Regresar" HorizontalAlignment="Left" Margin="300,567,0,0" VerticalAlignment="Top" FontSize="18" Width="85" Click="BtnRegresar"/>
         <Button Content="Actualizar datos" HorizontalAlignment="Left" Margin="428,567,0,0" VerticalAlignment="Top" FontSize="18" Width="151" Click="BtnActualizarDatos"/>
 

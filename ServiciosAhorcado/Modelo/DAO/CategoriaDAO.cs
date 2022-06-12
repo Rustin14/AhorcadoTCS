@@ -31,7 +31,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                     Console.WriteLine(ex.Message);
                 }
 
-                if (respuestaBD.Read())
+                while(respuestaBD.Read())
                 {
                     Categoria categoria = new Categoria();
                     categoria.idCategoria = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
