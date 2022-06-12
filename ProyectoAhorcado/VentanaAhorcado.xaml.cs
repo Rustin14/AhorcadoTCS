@@ -28,14 +28,19 @@ namespace ProyectoAhorcado
         List<String> letrasCombo = new List<String> {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                 "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
-        public VentanaAhorcado()
+        public VentanaAhorcado(Palabra palabra, Usuario usuario)
         {
             InitializeComponent();
-            List<Palabra> palabras = servicios.obtenerPalabras();
-            llenarComponente(palabras[0].nombre);
-            servicios.iniciarJuego(palabras[0].nombre);
-            descripcionText.Text = palabras[0].descripcion;
+            llenarComponente(palabra.nombre);
+            usuarioIniciado = usuario;
+            servicios.iniciarJuego(palabra.nombre);
+            descripcionText.Text = palabra.descripcion;
             letraCombo.ItemsSource = letrasCombo;
+        }
+
+        public void registrarPartidaFinalizada()
+        {
+            
         }
 
         public void llenarComponente(String palabra)

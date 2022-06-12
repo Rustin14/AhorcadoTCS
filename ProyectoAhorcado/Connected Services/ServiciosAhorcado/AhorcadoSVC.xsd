@@ -108,4 +108,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="actualizarEstadoPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+        <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarEstadoPartidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="actualizarEstadoPartidaResult" nillable="true" type="q11:Mensaje" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -654,6 +654,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/crearNuevaPartida", ReplyAction="http://tempuri.org/IAhorcadoSVC/crearNuevaPartidaResponse")]
         System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> crearNuevaPartidaAsync(ProyectoAhorcado.ServiciosAhorcado.Partida partidaNueva);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartida", ReplyAction="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartidaResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje actualizarEstadoPartida(int idPartida, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartida", ReplyAction="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartidaResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarEstadoPartidaAsync(int idPartida, string estado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -745,6 +751,14 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> crearNuevaPartidaAsync(ProyectoAhorcado.ServiciosAhorcado.Partida partidaNueva) {
             return base.Channel.crearNuevaPartidaAsync(partidaNueva);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje actualizarEstadoPartida(int idPartida, string estado) {
+            return base.Channel.actualizarEstadoPartida(idPartida, estado);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarEstadoPartidaAsync(int idPartida, string estado) {
+            return base.Channel.actualizarEstadoPartidaAsync(idPartida, estado);
         }
     }
 }

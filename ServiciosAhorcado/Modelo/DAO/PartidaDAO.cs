@@ -13,7 +13,6 @@ namespace ServiciosAhorcado.Modelo.DAO
         public static List<Partida> obtenerPartidasDisponibles()
         {
             List<Partida> partidas= new List<Partida>();
-            RespuestaLogin respuesta = new RespuestaLogin();
             MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
 
             if (conexionDB != null)
@@ -50,7 +49,50 @@ namespace ServiciosAhorcado.Modelo.DAO
             return partidas;
         }
 
-        public static Mensaje crearPartida(Partida partidaNueva)
+        public static Mensaje actualizarEstadoDePartida(int idPartida, string estado)
+        {
+            MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
+            Mensaje respuesta = new Mensaje();
+            if (conexionDB != null)
+            {
+                string query = "UPDATE partida SET estado=@estado WHERE idPartida = @idPartida";
+                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
+                mySqlCommand.Parameters.AddWithValue("@estado", estado);
+                mySqlCommand.Parameters.AddWithValue("@idPartida", idPartida);
+                mySqlCommand.Prepare();
+                String mensaje = "";
+                int filasAfectadas = 0;
+                try
+                {
+                    filasAfectadas = mySqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                if (filasAfectadas == -1)
+                {
+                    mensaje = "No fue posible realizar la operación. Intente más tarde.";
+                    respuesta.Error = true;
+                } else
+                {
+                    mensaje = "Actualización de estado exitosa.";
+                    respuesta.Error = false;
+
+                }
+                respuesta.MensajeRespuesta = mensaje;
+                respuesta.filasAfectadas = filasAfectadas;
+            } else
+            {
+                respuesta.Error = true;
+                respuesta.MensajeRespuesta = "No fue posible acceder a la base de datos. Intente más tarde.";
+                respuesta.filasAfectadas = 0;
+            }
+            return respuesta;
+        }
+
+            public static Mensaje crearPartida(Partida partidaNueva)
         {
             Mensaje mensaje = new Mensaje();
             MySqlConnection conexionBD = ConnectionUtil.obtenerConexion();

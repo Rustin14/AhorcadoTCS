@@ -70,5 +70,11 @@ namespace ServiciosAhorcado
             return mensaje;
         }
 
+        public Mensaje actualizarEstadoPartida(int idPartida, string estado)
+        {
+            Mensaje mensaje = PartidaDAO.actualizarEstadoDePartida(idPartida, estado);
+            return mensaje;
+        }
+
     }
 }

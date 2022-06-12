@@ -26,6 +26,7 @@ namespace ProyectoAhorcado
         List<Palabra> palabras = new List<Palabra>();
         List<string> nombresPalabras = new List<string>();
         List<Categoria> categorias = new List<Categoria>();
+        List<Usuario> usuariosEnPartida = new List<Usuario>();
 
         public CrearPartidaWindow(Usuario usuario)
         {
@@ -35,6 +36,11 @@ namespace ProyectoAhorcado
             nombreUsuarioLabel.Content = usuarioIniciado.nombre + " " + usuarioIniciado.apellidoPaterno;
             obtenerCategorias();
             obtenerPalabras();
+        }
+
+        public void esperarRetador()
+        {
+            //Método para que el Usuario pueda esperar a que un Retador se una a su partida (no estoy seguro aún cómo hacerlo)
         }
 
         public void obtenerCategorias()

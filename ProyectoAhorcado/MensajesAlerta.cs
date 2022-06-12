@@ -30,5 +30,14 @@ namespace ProyectoAhorcado
             MessageBoxImage icon = MessageBoxImage.Information;
             MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
         }
+
+        public void mensajeEspera(string mensaje, string titulo)
+        {
+            messageBoxText = mensaje;
+            caption = titulo;
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Error;
+            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+        }
     }
 }

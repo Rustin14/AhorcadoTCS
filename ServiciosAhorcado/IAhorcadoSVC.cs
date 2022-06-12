@@ -35,5 +35,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         Mensaje crearNuevaPartida(Partida partidaNueva);
+
+        [OperationContract]
+        Mensaje actualizarEstadoPartida(int idPartida, string estado);
     }
 }
