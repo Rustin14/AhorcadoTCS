@@ -13,5 +13,6 @@ namespace ServiciosAhorcado.Modelo.Poco
         public int idUsuarioRetador { get; set; }
         public int idUsuario { get; set; }
         public int idCategoria { get; set; }
+        public string nombreUsuarioRetrador { get; set; }
     }
 }

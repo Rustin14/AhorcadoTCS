@@ -651,6 +651,147 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PuntajeGlobal", Namespace="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco")]
+    [System.SerializableAttribute()]
+    public partial class PuntajeGlobal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCategoriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPartidaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPuntajeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idUsuarioRetadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreUsuarioRetradorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int puntosField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCategoria {
+            get {
+                return this.idCategoriaField;
+            }
+            set {
+                if ((this.idCategoriaField.Equals(value) != true)) {
+                    this.idCategoriaField = value;
+                    this.RaisePropertyChanged("idCategoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPartida {
+            get {
+                return this.idPartidaField;
+            }
+            set {
+                if ((this.idPartidaField.Equals(value) != true)) {
+                    this.idPartidaField = value;
+                    this.RaisePropertyChanged("idPartida");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPuntaje {
+            get {
+                return this.idPuntajeField;
+            }
+            set {
+                if ((this.idPuntajeField.Equals(value) != true)) {
+                    this.idPuntajeField = value;
+                    this.RaisePropertyChanged("idPuntaje");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                if ((this.idUsuarioField.Equals(value) != true)) {
+                    this.idUsuarioField = value;
+                    this.RaisePropertyChanged("idUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idUsuarioRetador {
+            get {
+                return this.idUsuarioRetadorField;
+            }
+            set {
+                if ((this.idUsuarioRetadorField.Equals(value) != true)) {
+                    this.idUsuarioRetadorField = value;
+                    this.RaisePropertyChanged("idUsuarioRetador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreUsuarioRetrador {
+            get {
+                return this.nombreUsuarioRetradorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreUsuarioRetradorField, value) != true)) {
+                    this.nombreUsuarioRetradorField = value;
+                    this.RaisePropertyChanged("nombreUsuarioRetrador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int puntos {
+            get {
+                return this.puntosField;
+            }
+            set {
+                if ((this.puntosField.Equals(value) != true)) {
+                    this.puntosField = value;
+                    this.RaisePropertyChanged("puntos");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiciosAhorcado.IAhorcadoSVC")]
     public interface IAhorcadoSVC {
@@ -744,6 +885,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/actualizarIDRetador", ReplyAction="http://tempuri.org/IAhorcadoSVC/actualizarIDRetadorResponse")]
         System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarIDRetadorAsync(int idRetador, int idPartida);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobalResponse")]
+        System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal> obtenerPuntajeGlobal(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobalResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal>> obtenerPuntajeGlobalAsync(int idUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -891,6 +1038,14 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarIDRetadorAsync(int idRetador, int idPartida) {
             return base.Channel.actualizarIDRetadorAsync(idRetador, idPartida);
+        }
+        
+        public System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal> obtenerPuntajeGlobal(int idUsuario) {
+            return base.Channel.obtenerPuntajeGlobal(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal>> obtenerPuntajeGlobalAsync(int idUsuario) {
+            return base.Channel.obtenerPuntajeGlobalAsync(idUsuario);
         }
     }
 }

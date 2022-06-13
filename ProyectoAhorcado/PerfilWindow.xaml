@@ -18,6 +18,20 @@
         <Label x:Name="labelEmail" Content="email@example.com" HorizontalAlignment="Left" Margin="311,231,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Button Content="Regresar" HorizontalAlignment="Left" Margin="300,567,0,0" VerticalAlignment="Top" FontSize="18" Width="85" Click="BtnRegresar"/>
         <Button Content="Actualizar datos" HorizontalAlignment="Left" Margin="428,567,0,0" VerticalAlignment="Top" FontSize="18" Width="151" Click="BtnActualizarDatos"/>
+        <DataGrid x:Name="dtGridPuntajes" Margin="71,331,71,94" Background="Black">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="dtGridPartida" Header="#Partida" Binding="{Binding idPartida}"  Width="100"/>
+                <DataGridTextColumn x:Name="dtGridPuntos" Header="Puntos" Binding="{Binding puntos}" Width="200"/>
+                <DataGridTextColumn x:Name="dtGridJugadorVencido" Header="Jugador vencido" Binding="{Binding nombreUsuarioRetador}" Width="150"/>
+            </DataGrid.Columns>
 
+        </DataGrid>
     </Grid>
 </Window>

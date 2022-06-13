@@ -41,6 +41,6 @@ namespace ServiciosAhorcado.Modelo.DAO {
             return puntajes;
         }
 
-        public static 
+       
     }
 }

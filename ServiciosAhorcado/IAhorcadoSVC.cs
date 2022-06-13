@@ -56,5 +56,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         Mensaje actualizarIDRetador(int idRetador, int idPartida);
+
+        [OperationContract]
+        List<PuntajeGlobal> obtenerPuntajeGlobal(int idUsuario);
     }
 }

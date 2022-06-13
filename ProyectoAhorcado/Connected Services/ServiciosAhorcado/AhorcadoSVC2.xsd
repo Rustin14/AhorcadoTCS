@@ -83,4 +83,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+  <xs:complexType name="ArrayOfPuntajeGlobal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PuntajeGlobal" nillable="true" type="tns:PuntajeGlobal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPuntajeGlobal" nillable="true" type="tns:ArrayOfPuntajeGlobal" />
+  <xs:complexType name="PuntajeGlobal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idCategoria" type="xs:int" />
+      <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+      <xs:element minOccurs="0" name="idPuntaje" type="xs:int" />
+      <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      <xs:element minOccurs="0" name="idUsuarioRetador" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreUsuarioRetrador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="puntos" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuntajeGlobal" nillable="true" type="tns:PuntajeGlobal" />
 </xs:schema>

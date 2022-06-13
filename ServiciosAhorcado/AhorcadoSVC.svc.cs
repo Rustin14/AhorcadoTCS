@@ -111,5 +111,12 @@ namespace ServiciosAhorcado
         {
             GameUtil.letraSeleccionada = letra;
         }
+
+        public List<PuntajeGlobal> obtenerPuntajeGlobal(int idUsuario)
+        {
+            List<PuntajeGlobal> puntajes = new List<PuntajeGlobal>();
+            puntajes = PuntajeGlobalDAO.ObtenerPuntajeGlobal(idUsuario);
+            return puntajes;
+        }
     }
 }
