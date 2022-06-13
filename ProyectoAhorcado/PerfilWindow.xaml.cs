@@ -22,6 +22,9 @@ namespace ProyectoAhorcado
     {
 
         Usuario usuarioIniciado = new Usuario();
+        ServiciosAhorcado.AhorcadoSVCClient client = new ServiciosAhorcado.AhorcadoSVCClient();
+        List<Usuario> usuarios = new List<Usuario>();
+
 
         public PerfilWindow(Usuario usuario)
         {
@@ -32,14 +35,29 @@ namespace ProyectoAhorcado
             labelApellidos.Content = usuarioIniciado.apellidoPaterno + " " + usuarioIniciado.apellidoMaterno;
             labelNombreUsuario.Content = usuarioIniciado.nombreUsuario;
             labelEmail.Content = usuarioIniciado.correoElectronico;
+            obtenerUsuarios();
+            obtenerPuntajeGlobal();
+        }
+        public void obtenerUsuarios() {
+            usuarios = client.obtenerUsuariosRegistrados();
         }
 
-        public void CargarEstadisticas() 
-        {
 
+        public void obtenerPuntajeGlobal() {
+            List<PuntajeGlobal> puntajes = new List<PuntajeGlobal>();
+            puntajes = client.obtenerPuntajeGlobal(usuarioIniciado.idUsuario);
+
+            for (int i = 0; i < puntajes.Count; i++) {
+                for (int j = 0; j < usuarios.Count; j++) {
+                    if (puntajes[i].idUsuarioRetador == usuarioIniciado.idUsuario) {
+                        puntajes[i].nombreUsuarioRetrador = usuarios[j].nombreUsuario;
+                    }
+                }
+            }
+            for (int i = 0; i < puntajes.Count; i++) {
+                dtGridPuntajes.Items.Add(puntajes[i]);
+            }
         }
-
-
 
         private void BtnRegresar(object sender, RoutedEventArgs e)
         {
@@ -56,5 +74,7 @@ namespace ProyectoAhorcado
             registroWindow.Show();
             this.Close();
         }
+
+        
     }
 }
