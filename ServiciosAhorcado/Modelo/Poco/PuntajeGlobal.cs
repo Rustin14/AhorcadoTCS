@@ -7,17 +7,11 @@ namespace ServiciosAhorcado.Modelo.Poco
 {
     public class PuntajeGlobal
     {
-
-        int puntos { get; set; }
-
-        String CorreoElectronico { get; set; }
-
-        int idPartida { get; set; }
-
-        String categoria { get; set; }
-
-
-
-
+        public int idPuntaje { get; set; }
+        public int puntos { get; set; }
+        public int idPartida { get; set; }
+        public int idUsuarioRetador { get; set; }
+        public int idUsuario { get; set; }
+        public int idCategoria { get; set; }
     }
 }

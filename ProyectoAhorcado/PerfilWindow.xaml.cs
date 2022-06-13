@@ -29,10 +29,17 @@ namespace ProyectoAhorcado
             usuarioIniciado = usuario;
             System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
             labelNombre.Content = usuarioIniciado.nombre;
-            labelApellidos.Content = usuarioIniciado.apellidoPaterno + " " + usuarioIniciado.apellidoPaterno;
+            labelApellidos.Content = usuarioIniciado.apellidoPaterno + " " + usuarioIniciado.apellidoMaterno;
             labelNombreUsuario.Content = usuarioIniciado.nombreUsuario;
             labelEmail.Content = usuarioIniciado.correoElectronico;
         }
+
+        public void CargarEstadisticas() 
+        {
+
+        }
+
+
 
         private void BtnRegresar(object sender, RoutedEventArgs e)
         {
