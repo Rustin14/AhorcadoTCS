@@ -123,4 +123,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="obtenerUsuariosRegistrados">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerUsuariosRegistradosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerUsuariosRegistradosResult" nillable="true" type="q12:ArrayOfUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

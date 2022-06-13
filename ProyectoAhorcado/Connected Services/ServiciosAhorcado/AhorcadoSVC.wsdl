@@ -62,6 +62,12 @@
   <wsdl:message name="IAhorcadoSVC_actualizarEstadoPartida_OutputMessage">
     <wsdl:part name="parameters" element="tns:actualizarEstadoPartidaResponse" />
   </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerUsuariosRegistrados_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerUsuariosRegistrados" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_obtenerUsuariosRegistrados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerUsuariosRegistradosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAhorcadoSVC">
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogIn" message="tns:IAhorcadoSVC_LogIn_InputMessage" />
@@ -98,6 +104,10 @@
     <wsdl:operation name="actualizarEstadoPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartida" message="tns:IAhorcadoSVC_actualizarEstadoPartida_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartidaResponse" message="tns:IAhorcadoSVC_actualizarEstadoPartida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerUsuariosRegistrados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistrados" message="tns:IAhorcadoSVC_obtenerUsuariosRegistrados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistradosResponse" message="tns:IAhorcadoSVC_obtenerUsuariosRegistrados_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAhorcadoSVC" type="tns:IAhorcadoSVC">
@@ -176,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="actualizarEstadoPartida">
       <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerUsuariosRegistrados">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistrados" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

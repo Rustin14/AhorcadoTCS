@@ -38,5 +38,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         Mensaje actualizarEstadoPartida(int idPartida, string estado);
+
+        [OperationContract]
+        List<Usuario> obtenerUsuariosRegistrados();
     }
 }

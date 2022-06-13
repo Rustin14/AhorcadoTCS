@@ -24,11 +24,12 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="dtGridSalaColumn" Header="Sala" Binding="{Binding idPartida}"  Width="100"/>
-                <DataGridTextColumn x:Name="dtGridCreadorColumn" Header="Creador" Width="150"/>
+                <DataGridTextColumn x:Name="dtGridCreadorColumn" Header="Creador" Binding="{Binding nombreUsuarioRetador}" Width="150"/>
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="225,380,0,0" VerticalAlignment="Top" FontSize="18" Width="83" Click="btnCancelar"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="208,380,0,0" VerticalAlignment="Top" FontSize="18" Width="83" Click="btnCancelar"/>
+        <Button Content="Crear partida" HorizontalAlignment="Left" Margin="303,380,0,0" VerticalAlignment="Top" FontSize="18"/>
 
     </Grid>
 </Window>

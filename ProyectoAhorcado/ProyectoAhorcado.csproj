@@ -229,6 +229,9 @@
     <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.RespuestaLogin.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiciosAhorcado\ProyectoAhorcado.ServiciosAhorcado.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.Categoria.datasource" />
     <None Include="Properties\DataSources\ServiciosAhorcado.Modelo.Poco.Mensaje.datasource" />

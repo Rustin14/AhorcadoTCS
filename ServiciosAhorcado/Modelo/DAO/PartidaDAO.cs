@@ -29,7 +29,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 {
                     Console.WriteLine(ex.Message);
                 }
-                if (respuestaBD.Read())
+                while (respuestaBD.Read())
                 {
                     Partida partida= new Partida();
                     partida.idPartida = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));

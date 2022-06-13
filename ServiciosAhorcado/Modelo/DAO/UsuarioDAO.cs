@@ -9,7 +9,7 @@ namespace ServiciosAhorcado.Modelo.DAO
 {
     public class UsuarioDAO
     {
-        
+
         public static RespuestaLogin iniciarSesion(string username, string password)
         {
             RespuestaLogin respuesta = new RespuestaLogin();
@@ -161,5 +161,40 @@ namespace ServiciosAhorcado.Modelo.DAO
             return mensaje;
         }
 
+        public static List<Usuario> obtenerUsuarios()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            MySqlConnection conexionBD = ConnectionUtil.obtenerConexion();
+            if (conexionBD != null)
+            {
+                string query = "SELECT * FROM usuario";
+                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
+                mySqlCommand.Prepare();
+                MySqlDataReader respuestaBD = null;
+                try
+                {
+                    respuestaBD = mySqlCommand.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                while (respuestaBD.Read())
+                {
+                    Usuario usuario = new Usuario();
+                    usuario.idUsuario = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
+                    usuario.correoElectronico = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(1));
+                    usuario.nombre = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2));
+                    usuario.apellidoPaterno = (respuestaBD.IsDBNull(3) ? "" : respuestaBD.GetString(3));
+                    usuario.apellidoMaterno = (respuestaBD.IsDBNull(4) ? "" : respuestaBD.GetString(4));
+                    DateTime dateTime = DateTime.Now;
+                    usuario.fechaNacimiento = (respuestaBD.IsDBNull(5) ? dateTime : respuestaBD.GetDateTime(5));
+                    usuario.nombreUsuario = (respuestaBD.IsDBNull(6) ? "" : respuestaBD.GetString(6));
+                    usuario.contrasena = (respuestaBD.IsDBNull(7) ? "" : respuestaBD.GetString(7));
+                    usuarios.Add(usuario);
+                }
+            }
+            return usuarios;
+        }
     }
 }

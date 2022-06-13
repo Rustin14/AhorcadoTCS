@@ -487,6 +487,9 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         private int idUsuarioRetadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreUsuarioRetadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int oportunidadesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -563,6 +566,19 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
                 if ((this.idUsuarioRetadorField.Equals(value) != true)) {
                     this.idUsuarioRetadorField = value;
                     this.RaisePropertyChanged("idUsuarioRetador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreUsuarioRetador {
+            get {
+                return this.nombreUsuarioRetadorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreUsuarioRetadorField, value) != true)) {
+                    this.nombreUsuarioRetadorField = value;
+                    this.RaisePropertyChanged("nombreUsuarioRetador");
                 }
             }
         }
@@ -660,6 +676,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartida", ReplyAction="http://tempuri.org/IAhorcadoSVC/actualizarEstadoPartidaResponse")]
         System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarEstadoPartidaAsync(int idPartida, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistrados", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistradosResponse")]
+        System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Usuario> obtenerUsuariosRegistrados();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistrados", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistradosResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Usuario>> obtenerUsuariosRegistradosAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -759,6 +781,14 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarEstadoPartidaAsync(int idPartida, string estado) {
             return base.Channel.actualizarEstadoPartidaAsync(idPartida, estado);
+        }
+        
+        public System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Usuario> obtenerUsuariosRegistrados() {
+            return base.Channel.obtenerUsuariosRegistrados();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Usuario>> obtenerUsuariosRegistradosAsync() {
+            return base.Channel.obtenerUsuariosRegistradosAsync();
         }
     }
 }

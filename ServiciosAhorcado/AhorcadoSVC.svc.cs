@@ -76,5 +76,12 @@ namespace ServiciosAhorcado
             return mensaje;
         }
 
+        public List<Usuario> obtenerUsuariosRegistrados()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            usuarios = UsuarioDAO.obtenerUsuarios();
+            return usuarios;
+        }
+
     }
 }
