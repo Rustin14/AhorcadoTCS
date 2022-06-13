@@ -12,6 +12,7 @@ namespace ServiciosAhorcado.Modelo
         public static String palabraSeleccionada { set; get; }
         public static List<char> arrayPalabra = new List<char>();
         public static Boolean juegoFinalizado = false;
+        public static char letraSeleccionada { get; set; }
 
         public static void IniciarPartida(string palabra)
         {

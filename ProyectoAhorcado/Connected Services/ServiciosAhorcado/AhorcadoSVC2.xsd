@@ -39,6 +39,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="categoria" type="xs:int" />
       <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idPalabra" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -66,6 +67,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
       <xs:element minOccurs="0" name="categoriaId" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="idPartida" type="xs:int" />
       <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
       <xs:element minOccurs="0" name="idUsuarioRetador" type="xs:int" />

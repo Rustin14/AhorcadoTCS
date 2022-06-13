@@ -7,6 +7,7 @@ namespace ServiciosAhorcado.Modelo.Poco
 {
     public class Palabra
     {
+        public int idPalabra { get; set; }
 
         public int categoria { get; set; }
 

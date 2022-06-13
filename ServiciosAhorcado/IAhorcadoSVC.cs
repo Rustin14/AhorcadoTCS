@@ -25,6 +25,12 @@ namespace ServiciosAhorcado
         void iniciarJuego(String palabra);
 
         [OperationContract]
+        char getLetraEscogida();
+
+        [OperationContract]
+        void setLetraEscogida(char letra);
+
+        [OperationContract]
         List<Palabra> obtenerPalabras();
 
         [OperationContract]
@@ -41,5 +47,14 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         List<Usuario> obtenerUsuariosRegistrados();
+
+        [OperationContract]
+        Partida obtenerPartidaPorID(int idPartida);
+
+        [OperationContract]
+        Palabra obtenerPalabraPorID(int idPalabra);
+
+        [OperationContract]
+        Mensaje actualizarIDRetador(int idRetador, int idPartida);
     }
 }

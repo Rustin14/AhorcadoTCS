@@ -340,6 +340,9 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         private string descripcionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPalabraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nombreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -374,6 +377,19 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
                 if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
                     this.descripcionField = value;
                     this.RaisePropertyChanged("descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPalabra {
+            get {
+                return this.idPalabraField;
+            }
+            set {
+                if ((this.idPalabraField.Equals(value) != true)) {
+                    this.idPalabraField = value;
+                    this.RaisePropertyChanged("idPalabra");
                 }
             }
         }
@@ -478,6 +494,9 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         private int categoriaIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string estadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idPartidaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -527,6 +546,19 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
                 if ((this.categoriaIdField.Equals(value) != true)) {
                     this.categoriaIdField = value;
                     this.RaisePropertyChanged("categoriaId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.estadoField, value) != true)) {
+                    this.estadoField = value;
+                    this.RaisePropertyChanged("estado");
                 }
             }
         }
@@ -647,6 +679,18 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/iniciarJuego", ReplyAction="http://tempuri.org/IAhorcadoSVC/iniciarJuegoResponse")]
         System.Threading.Tasks.Task iniciarJuegoAsync(string palabra);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/getLetraEscogida", ReplyAction="http://tempuri.org/IAhorcadoSVC/getLetraEscogidaResponse")]
+        char getLetraEscogida();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/getLetraEscogida", ReplyAction="http://tempuri.org/IAhorcadoSVC/getLetraEscogidaResponse")]
+        System.Threading.Tasks.Task<char> getLetraEscogidaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/setLetraEscogida", ReplyAction="http://tempuri.org/IAhorcadoSVC/setLetraEscogidaResponse")]
+        void setLetraEscogida(char letra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/setLetraEscogida", ReplyAction="http://tempuri.org/IAhorcadoSVC/setLetraEscogidaResponse")]
+        System.Threading.Tasks.Task setLetraEscogidaAsync(char letra);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabras", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPalabrasResponse")]
         System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Palabra> obtenerPalabras();
         
@@ -682,6 +726,24 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistrados", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerUsuariosRegistradosResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Usuario>> obtenerUsuariosRegistradosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPartidaPorID", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPartidaPorIDResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Partida obtenerPartidaPorID(int idPartida);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPartidaPorID", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPartidaPorIDResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Partida> obtenerPartidaPorIDAsync(int idPartida);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabraPorID", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPalabraPorIDResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Palabra obtenerPalabraPorID(int idPalabra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPalabraPorID", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPalabraPorIDResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Palabra> obtenerPalabraPorIDAsync(int idPalabra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/actualizarIDRetador", ReplyAction="http://tempuri.org/IAhorcadoSVC/actualizarIDRetadorResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje actualizarIDRetador(int idRetador, int idPartida);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/actualizarIDRetador", ReplyAction="http://tempuri.org/IAhorcadoSVC/actualizarIDRetadorResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarIDRetadorAsync(int idRetador, int idPartida);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -743,6 +805,22 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
             return base.Channel.iniciarJuegoAsync(palabra);
         }
         
+        public char getLetraEscogida() {
+            return base.Channel.getLetraEscogida();
+        }
+        
+        public System.Threading.Tasks.Task<char> getLetraEscogidaAsync() {
+            return base.Channel.getLetraEscogidaAsync();
+        }
+        
+        public void setLetraEscogida(char letra) {
+            base.Channel.setLetraEscogida(letra);
+        }
+        
+        public System.Threading.Tasks.Task setLetraEscogidaAsync(char letra) {
+            return base.Channel.setLetraEscogidaAsync(letra);
+        }
+        
         public System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Palabra> obtenerPalabras() {
             return base.Channel.obtenerPalabras();
         }
@@ -789,6 +867,30 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.Usuario>> obtenerUsuariosRegistradosAsync() {
             return base.Channel.obtenerUsuariosRegistradosAsync();
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Partida obtenerPartidaPorID(int idPartida) {
+            return base.Channel.obtenerPartidaPorID(idPartida);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Partida> obtenerPartidaPorIDAsync(int idPartida) {
+            return base.Channel.obtenerPartidaPorIDAsync(idPartida);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Palabra obtenerPalabraPorID(int idPalabra) {
+            return base.Channel.obtenerPalabraPorID(idPalabra);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Palabra> obtenerPalabraPorIDAsync(int idPalabra) {
+            return base.Channel.obtenerPalabraPorIDAsync(idPalabra);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje actualizarIDRetador(int idRetador, int idPartida) {
+            return base.Channel.actualizarIDRetador(idRetador, idPartida);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> actualizarIDRetadorAsync(int idRetador, int idPartida) {
+            return base.Channel.actualizarIDRetadorAsync(idRetador, idPartida);
         }
     }
 }

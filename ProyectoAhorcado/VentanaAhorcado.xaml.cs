@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,21 +22,65 @@ namespace ProyectoAhorcado
     public partial class VentanaAhorcado : Window
     {
         ServiciosAhorcado.AhorcadoSVCClient servicios = new ServiciosAhorcado.AhorcadoSVCClient();
+        Boolean partidaFinalizada = false;
         int partesAhorcado = 0;
         String[] arrayLetras;
         String palabra;
+        Boolean creadorPartida = false;
         Usuario usuarioIniciado = new Usuario();
+        Palabra palabraSeleccionada = new Palabra();
+        Partida partidaCreada = new Partida();
         List<String> letrasCombo = new List<String> {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                 "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+        char letraSeleccionada;
+        
 
-        public VentanaAhorcado(Palabra palabra, Usuario usuario)
+        public VentanaAhorcado(Palabra palabra, Usuario usuario, Partida partida)
         {
             InitializeComponent();
             llenarComponente(palabra.nombre);
             usuarioIniciado = usuario;
+            palabraSeleccionada = palabra;
+            partidaCreada = partida;
             servicios.iniciarJuego(palabra.nombre);
             descripcionText.Text = palabra.descripcion;
             letraCombo.ItemsSource = letrasCombo;
+            detectarJugador();
+            if (creadorPartida == true)
+            {
+                Thread hiloCreadorPartida = new Thread(new ThreadStart(mostrarJuegoRetador));
+                hiloCreadorPartida.Start();
+            }
+        }
+
+        public void detectarJugador()
+        {
+            if (partidaCreada.idUsuario == usuarioIniciado.idUsuario)
+            {
+                creadorPartida = true;
+                letraCombo.Visibility = Visibility.Hidden;
+                jugarLetraBtn.Visibility = Visibility.Hidden;
+                palabraTb.Visibility = Visibility.Hidden;
+                adivinarPalabraBtn.Visibility = Visibility.Hidden;
+                labelLetra.Visibility = Visibility.Hidden;
+                labelPalabra.Visibility = Visibility.Hidden;
+            } 
+        }
+
+        public void mostrarJuegoRetador()
+        {
+            while (!partidaFinalizada)
+            {
+                if (letraSeleccionada != servicios.getLetraEscogida())
+                {
+                    letraSeleccionada = servicios.getLetraEscogida();
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        MostrarJuego();
+                    })); 
+                }
+                
+            }
         }
 
         public void registrarPartidaFinalizada()
@@ -120,11 +165,12 @@ namespace ProyectoAhorcado
             }
         }
 
-        private void jugarLetraBtn_Click(object sender, RoutedEventArgs e)
+        private void Juego()
         {
             String letra = letraCombo.SelectedValue.ToString().ToLower();
             char letraEscogida = letra[0];
             List<int> coincidencias = servicios.checarLetra(letraEscogida);
+            servicios.setLetraEscogida(letraEscogida);
             letrasCombo.Remove(letraEscogida.ToString().ToUpper());
             letraCombo.ItemsSource = letrasCombo;
             letraCombo.Items.Refresh();
@@ -133,11 +179,30 @@ namespace ProyectoAhorcado
             validarJuego();
         }
 
+        private void MostrarJuego()
+        {
+            List<int> coincidencias = servicios.checarLetra(letraSeleccionada);
+            servicios.setLetraEscogida(letraSeleccionada);
+            letrasCombo.Remove(letraSeleccionada.ToString().ToUpper());
+            letraCombo.ItemsSource = letrasCombo;
+            letraCombo.Items.Refresh();
+            actualizarComponente(coincidencias, letraSeleccionada);
+            actualizarAhorcado();
+            validarJuego();
+        }
+
+        private void jugarLetraBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Juego();
+        }
+
         private void validarJuego()
         {
             int contadorVictoria = 0;
             if (partesAhorcado == 6)
             {
+                partidaFinalizada = true;
+                servicios.actualizarEstadoPartida(partidaCreada.idPartida, "Derrota");
                 finalizadoRectangulo.Visibility = Visibility.Visible;
                 derrotaLabel.Visibility = Visibility.Visible;
                 FinalizadoModal modal = new FinalizadoModal("¡DERROTA!");
@@ -153,11 +218,14 @@ namespace ProyectoAhorcado
                     TextBox child = (TextBox)VisualTreeHelper.GetChild(panelPalabra, x);
                     if (!string.IsNullOrWhiteSpace(child.Text))
                     {
+                        System.Diagnostics.Debug.WriteLine("Contador victoria:  " + contadorVictoria);
                         contadorVictoria++;
                     }
                 }
                 if (contadorVictoria == palabra.Count())
                 {
+                    partidaFinalizada = true;
+                    servicios.actualizarEstadoPartida(partidaCreada.idPartida, "Victoria");
                     finalizadoRectangulo.Visibility = Visibility.Visible;
                     victoriaLabel.Visibility = Visibility.Visible;
                     FinalizadoModal modal = new FinalizadoModal("¡VICTORIA!");

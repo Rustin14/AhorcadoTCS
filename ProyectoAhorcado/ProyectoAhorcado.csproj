@@ -123,6 +123,9 @@
     <Compile Include="CrearPartidaWindow.xaml.cs">
       <DependentUpon>CrearPartidaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EsperarJugador.xaml.cs">
+      <DependentUpon>EsperarJugador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FinalizadoModal.xaml.cs">
       <DependentUpon>FinalizadoModal.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <DependentUpon>VentanaAhorcado.xaml</DependentUpon>
     </Compile>
     <Page Include="CrearPartidaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EsperarJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

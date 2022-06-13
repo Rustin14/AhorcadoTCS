@@ -58,6 +58,30 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="getLetraEscogida">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLetraEscogidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="getLetraEscogidaResult" type="q6:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setLetraEscogida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="letra" type="q7:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setLetraEscogidaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="obtenerPalabras">
     <xs:complexType>
       <xs:sequence />
@@ -66,7 +90,7 @@
   <xs:element name="obtenerPalabrasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPalabrasResult" nillable="true" type="q6:ArrayOfPalabra" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPalabrasResult" nillable="true" type="q8:ArrayOfPalabra" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +102,7 @@
   <xs:element name="obtenerCategoriasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerCategoriasResult" nillable="true" type="q7:ArrayOfCategoria" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerCategoriasResult" nillable="true" type="q9:ArrayOfCategoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -90,21 +114,21 @@
   <xs:element name="obtenerPartidasDisponiblesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPartidasDisponiblesResult" nillable="true" type="q8:ArrayOfPartida" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPartidasDisponiblesResult" nillable="true" type="q10:ArrayOfPartida" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="crearNuevaPartida">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="partidaNueva" nillable="true" type="q9:Partida" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="partidaNueva" nillable="true" type="q11:Partida" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="crearNuevaPartidaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="crearNuevaPartidaResult" nillable="true" type="q10:Mensaje" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="crearNuevaPartidaResult" nillable="true" type="q12:Mensaje" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -119,7 +143,7 @@
   <xs:element name="actualizarEstadoPartidaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="actualizarEstadoPartidaResult" nillable="true" type="q11:Mensaje" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="actualizarEstadoPartidaResult" nillable="true" type="q13:Mensaje" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -131,7 +155,50 @@
   <xs:element name="obtenerUsuariosRegistradosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerUsuariosRegistradosResult" nillable="true" type="q12:ArrayOfUsuario" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerUsuariosRegistradosResult" nillable="true" type="q14:ArrayOfUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPartidaPorID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPartidaPorIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPartidaPorIDResult" nillable="true" type="q15:Partida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPalabraPorID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPalabra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerPalabraPorIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="obtenerPalabraPorIDResult" nillable="true" type="q16:Palabra" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarIDRetador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idRetador" type="xs:int" />
+        <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarIDRetadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="actualizarIDRetadorResult" nillable="true" type="q17:Mensaje" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

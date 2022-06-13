@@ -13,8 +13,8 @@
                 <ImageBrush ImageSource="/Imagenes/perfil icono.png"/>
             </Button.Background>
         </Button>
-        <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
-        <DataGrid x:Name="dtGridPartidas" Margin="71,127,71,94" Background="Black">
+        <Label Content="AHORCADO" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic" FontFamily="Roboto" Background="{x:Null}"/>
+        <DataGrid x:Name="dtGridPartidas" Margin="71,119,71,102" Background="Black">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Black"/>
@@ -28,8 +28,9 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="208,380,0,0" VerticalAlignment="Top" FontSize="18" Width="83" Click="btnCancelar"/>
-        <Button Content="Crear partida" HorizontalAlignment="Left" Margin="303,380,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="246,387,0,0" VerticalAlignment="Top" Width="67" Click="btnCancelar" Height="21"/>
+        <Button Content="Crear partida" HorizontalAlignment="Left" Margin="323,387,0,0" VerticalAlignment="Top" Height="21" Width="87"/>
+        <Button x:Name="unirseBtn" Content="Unirse" HorizontalAlignment="Left" Margin="312,337,0,0" VerticalAlignment="Top" Width="67" Click="btnUnirse" Height="21"/>
 
     </Grid>
 </Window>

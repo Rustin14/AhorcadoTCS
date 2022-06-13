@@ -33,6 +33,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 while (respuestaBD.Read())
                 {
                     Palabra palabra = new Palabra();
+                    palabra.idPalabra = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
                     palabra.categoria = (respuestaBD.IsDBNull(3) ? 0 : respuestaBD.GetInt32(3));
                     palabra.nombre = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(1));
                     palabra.descripcion = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2));
@@ -43,6 +44,41 @@ namespace ServiciosAhorcado.Modelo.DAO
                 Console.WriteLine("No es posible establecer conexión a la base de datos.");
             }
             return palabras;
+        }
+
+        public static Palabra obtenerPalabraPorID(int idPalabra)
+        {
+            MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
+            Palabra palabra = new Palabra();
+
+            if (conexionDB != null)
+            {
+                string query = "SELECT * FROM palabra where idPalabra = @idPalabra";
+                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
+                mySqlCommand.Parameters.AddWithValue("@idPalabra", idPalabra);
+                mySqlCommand.Prepare();
+                MySqlDataReader respuestaBD = null;
+                try
+                {
+                    respuestaBD = mySqlCommand.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                while (respuestaBD.Read())
+                {
+                    palabra.idPalabra = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
+                    palabra.categoria = (respuestaBD.IsDBNull(3) ? 0 : respuestaBD.GetInt32(3));
+                    palabra.nombre = (respuestaBD.IsDBNull(1) ? "" : respuestaBD.GetString(1));
+                    palabra.descripcion = (respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2));
+                }
+            }
+            else
+            {
+                Console.WriteLine("No es posible establecer conexión a la base de datos.");
+            }
+            return palabra;
         }
     }
 }

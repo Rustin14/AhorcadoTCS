@@ -21,6 +21,7 @@ namespace ProyectoAhorcado
     {
         public FinalizadoModal(string finalizado)
         {
+            finalizadoLabel.Content = finalizado;
             InitializeComponent();
         }
 

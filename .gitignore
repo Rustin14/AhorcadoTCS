@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+/ServiciosAhorcado/Modelo/ConnectionUtil.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

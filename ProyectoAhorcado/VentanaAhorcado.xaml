@@ -88,8 +88,8 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <ComboBox x:Name="letraCombo" HorizontalAlignment="Left" Margin="400,374,0,0" VerticalAlignment="Top" Width="46"/>
-        <Label Content="Escoge una letra:" HorizontalAlignment="Left" Margin="294,370,0,0" VerticalAlignment="Top"/>
-        <Label Content="¿Conoces la palabra?" HorizontalAlignment="Left" Margin="272,407,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelLetra" Content="Escoge una letra:" HorizontalAlignment="Left" Margin="294,370,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPalabra" Content="¿Conoces la palabra?" HorizontalAlignment="Left" Margin="272,407,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="palabraTb" HorizontalAlignment="Left" Margin="400,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
         <Label Content="AYUDA" HorizontalAlignment="Left" Margin="554,215,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="jugarLetraBtn" Content="Jugar letra" HorizontalAlignment="Left" Margin="467,375,0,0" VerticalAlignment="Top" Width="67" Click="jugarLetraBtn_Click"/>

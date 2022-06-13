@@ -26,7 +26,6 @@ namespace ProyectoAhorcado
         List<Palabra> palabras = new List<Palabra>();
         List<string> nombresPalabras = new List<string>();
         List<Categoria> categorias = new List<Categoria>();
-        List<Usuario> usuariosEnPartida = new List<Usuario>();
 
         public CrearPartidaWindow(Usuario usuario)
         {
@@ -41,6 +40,7 @@ namespace ProyectoAhorcado
         public void esperarRetador()
         {
             //Método para que el Usuario pueda esperar a que un Retador se una a su partida (no estoy seguro aún cómo hacerlo)
+            //while ()
         }
 
         public void obtenerCategorias()
@@ -57,6 +57,32 @@ namespace ProyectoAhorcado
         public void obtenerPalabras()
         {
             palabras = client.obtenerPalabras();
+        }
+
+        public void crearPartida(int idCategoria, int idPalabra)
+        {
+            Partida partida = new Partida();
+            partida.oportunidades = 0;
+            partida.idUsuario = usuarioIniciado.idUsuario;
+            partida.idUsuarioRetador = usuarioIniciado.idUsuario;
+            partida.Fecha = DateTime.Now;
+            partida.palabraId = idPalabra;
+            partida.categoriaId = idCategoria;
+            partida.estado = "Abierta";
+
+            Mensaje mensaje = client.crearNuevaPartida(partida);
+            if (mensaje.Error == false) 
+            {
+                Palabra palabra = palabras.Find(x => x.idPalabra == partida.palabraId);
+
+                VentanaAhorcado ventanaAhorcado = new VentanaAhorcado(palabra, usuarioIniciado, partida);
+                ventanaAhorcado.Show();
+                this.Close();
+            } else
+            {
+                MensajesAlerta alerta = new MensajesAlerta();
+                alerta.mensajeAlerta(mensaje.MensajeRespuesta, "Crear partida");
+            }
         }
 
         private void btnCancelar(object sender, RoutedEventArgs e)
@@ -87,6 +113,30 @@ namespace ProyectoAhorcado
                 }
             }
             cbBoxPalabra.ItemsSource = nombresPalabras;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            String nombrePalabra = cbBoxPalabra.SelectedItem.ToString();
+            int idPalabra = 0;
+            for (int i = 0; i < palabras.Count; i++)
+            {
+                if (nombrePalabra == palabras[i].nombre)
+                {
+                    idPalabra = palabras[i].idPalabra;
+                }
+            }
+            int idCategoriaSeleccionada = 0;
+            string categoriaSeleccionada = (string)cbBoxCategoria.SelectedItem;
+            for (int i = 0; i < categorias.Count; i++)
+            {
+                if (categorias[i].nombreCategoria.Equals(categoriaSeleccionada))
+                {
+                    idCategoriaSeleccionada = categorias[i].idCategoria;
+                    break;
+                }
+            }
+            crearPartida(idCategoriaSeleccionada, idPalabra);
         }
     }
 }

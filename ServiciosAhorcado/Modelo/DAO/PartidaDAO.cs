@@ -16,8 +16,8 @@ namespace ServiciosAhorcado.Modelo.DAO
             MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
 
             if (conexionDB != null)
-            {
-                string query = "SELECT * FROM partida";
+            { 
+                string query = "SELECT * FROM partida where estado = 'Abierta'";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
                 mySqlCommand.Prepare();
                 MySqlDataReader respuestaBD = null;
@@ -39,6 +39,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                     partida.idUsuario = (respuestaBD.IsDBNull(4) ? 0 : respuestaBD.GetInt32(4));
                     partida.palabraId = (respuestaBD.IsDBNull(5) ? 0 : respuestaBD.GetInt32(5));
                     partida.categoriaId = (respuestaBD.IsDBNull(6) ? 0 : respuestaBD.GetInt32(6));
+                    partida.estado = (respuestaBD.IsDBNull(7) ? "" : respuestaBD.GetString(7));
                     partidas.Add(partida);
                 }
             }
@@ -47,6 +48,88 @@ namespace ServiciosAhorcado.Modelo.DAO
                 Console.WriteLine("No es posible establecer conexión a la base de datos.");
             }
             return partidas;
+        }
+
+        public static Partida obtenerPartidaPorID(int idPartida)
+        {
+            Partida partida = new Partida();
+            MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
+
+            if (conexionDB != null)
+            {
+                string query = "SELECT * FROM partida WHERE idPartida = @idPartida";
+                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
+                mySqlCommand.Parameters.AddWithValue("@idPartida", idPartida);
+                mySqlCommand.Prepare();
+                MySqlDataReader respuestaBD = null;
+                try
+                {
+                    respuestaBD = mySqlCommand.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                while (respuestaBD.Read())
+                {
+                    partida.idPartida = (respuestaBD.IsDBNull(0) ? 0 : respuestaBD.GetInt32(0));
+                    partida.oportunidades = (respuestaBD.IsDBNull(1) ? 0 : respuestaBD.GetInt32(1));
+                    partida.Fecha = DateTime.Parse((respuestaBD.IsDBNull(2) ? "" : respuestaBD.GetString(2)));
+                    partida.idUsuarioRetador = (respuestaBD.IsDBNull(3) ? 0 : respuestaBD.GetInt32(3));
+                    partida.idUsuario = (respuestaBD.IsDBNull(4) ? 0 : respuestaBD.GetInt32(4));
+                    partida.palabraId = (respuestaBD.IsDBNull(5) ? 0 : respuestaBD.GetInt32(5));
+                    partida.categoriaId = (respuestaBD.IsDBNull(6) ? 0 : respuestaBD.GetInt32(6));                }
+            }
+            else
+            {
+                Console.WriteLine("No es posible establecer conexión a la base de datos.");
+            }
+            return partida;
+        }
+
+        public static Mensaje actualizarIDRetador (int idRetador, int idPartida)
+        {
+            MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
+            Mensaje respuesta = new Mensaje();
+            if (conexionDB != null)
+            {
+                string query = "UPDATE partida SET idUsuarioRetador=@idRetador WHERE idPartida = @idPartida";
+                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
+                mySqlCommand.Parameters.AddWithValue("@idRetador", idRetador);
+                mySqlCommand.Parameters.AddWithValue("@idPartida", idPartida);
+                mySqlCommand.Prepare();
+                String mensaje = "";
+                int filasAfectadas = 0;
+                try
+                {
+                    filasAfectadas = mySqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                if (filasAfectadas == -1)
+                {
+                    mensaje = "No fue posible realizar la operación. Intente más tarde.";
+                    respuesta.Error = true;
+                }
+                else
+                {
+                    mensaje = "Actualización de estado exitosa.";
+                    respuesta.Error = false;
+
+                }
+                respuesta.MensajeRespuesta = mensaje;
+                respuesta.filasAfectadas = filasAfectadas;
+            }
+            else
+            {
+                respuesta.Error = true;
+                respuesta.MensajeRespuesta = "No fue posible acceder a la base de datos. Intente más tarde.";
+                respuesta.filasAfectadas = 0;
+            }
+            return respuesta;
         }
 
         public static Mensaje actualizarEstadoDePartida(int idPartida, string estado)
@@ -100,10 +183,9 @@ namespace ServiciosAhorcado.Modelo.DAO
 
             if(conexionBD != null)
             {
-                string query = "INSERT INTO Partida (idPartida, oportunidades, fecha, idUsuarioRetador, idUsuario, idPalabra, idCategoria) " +
-                    "VALUES (@idPartida, @oportunidades, @fecha, @idUsuarioRetador, @idUsuario, @idPalabra, @idCategoria)";
+                string query = "INSERT INTO Partida (oportunidades, fecha, idUsuarioRetador, idUsuario, idPalabra, idCategoria) " +
+                    "VALUES (@oportunidades, @fecha, @idUsuarioRetador, @idUsuario, @idPalabra, @idCategoria)";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
-                mySqlCommand.Parameters.AddWithValue("@idPartida", partidaNueva.idPartida);
                 mySqlCommand.Parameters.AddWithValue("@oportunidades", partidaNueva.oportunidades);
                 mySqlCommand.Parameters.AddWithValue("@fecha", partidaNueva.Fecha);
                 mySqlCommand.Parameters.AddWithValue("@idUsuarioRetador", partidaNueva.idUsuarioRetador);

@@ -23,5 +23,7 @@ namespace ServiciosAhorcado.Modelo.Poco
         public int categoriaId { get; set; }
 
         public string nombreUsuarioRetador { get; set; }
+
+        public string estado { get; set; }
     }
 }

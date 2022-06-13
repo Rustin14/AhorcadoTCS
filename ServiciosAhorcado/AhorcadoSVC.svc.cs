@@ -49,6 +49,12 @@ namespace ServiciosAhorcado
             return palabras;
         }
 
+        public Palabra obtenerPalabraPorID(int idPalabra)
+        {
+            Palabra palabra = PalabraDAO.obtenerPalabraPorID(idPalabra);
+            return palabra;
+        }
+
         public List<Categoria> obtenerCategorias()
         {
             List<Categoria> categorias = new List<Categoria>();
@@ -61,6 +67,13 @@ namespace ServiciosAhorcado
             List<Partida> partidas = new List<Partida>();
             partidas = PartidaDAO.obtenerPartidasDisponibles();
             return partidas;
+        }
+
+        public Partida obtenerPartidaPorID(int idPartida)
+        {
+            Partida partida = new Partida();
+            partida = PartidaDAO.obtenerPartidaPorID(idPartida);
+            return partida;
         }
 
         public Mensaje crearNuevaPartida(Partida partidaNueva)
@@ -83,5 +96,20 @@ namespace ServiciosAhorcado
             return usuarios;
         }
 
+        public Mensaje actualizarIDRetador(int idRetador, int idPartida)
+        {
+            Mensaje mensaje = PartidaDAO.actualizarIDRetador(idRetador, idPartida);
+            return mensaje;
+        }
+
+        public char getLetraEscogida()
+        {
+            return GameUtil.letraSeleccionada;
+        }
+
+        public void setLetraEscogida(char letra)
+        {
+            GameUtil.letraSeleccionada = letra;
+        }
     }
 }
