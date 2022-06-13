@@ -48,11 +48,8 @@ namespace ProyectoAhorcado
             puntajes = client.obtenerPuntajeGlobal(usuarioIniciado.idUsuario);
 
             for (int i = 0; i < puntajes.Count; i++) {
-                for (int j = 0; j < usuarios.Count; j++) {
-                    if (puntajes[i].idUsuarioRetador == usuarioIniciado.idUsuario) {
-                        puntajes[i].nombreUsuarioRetrador = usuarios[j].nombreUsuario;
-                    }
-                }
+
+                puntajes[i].nombreUsuarioRetrador = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuarioRetador).nombreUsuario;
             }
             for (int i = 0; i < puntajes.Count; i++) {
                 dtGridPuntajes.Items.Add(puntajes[i]);
