@@ -230,4 +230,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="modificarUsuarioRegistrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="correoUsuario" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="nuevoDatosUsuario" nillable="true" type="q21:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modificarUsuarioRegistradoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="modificarUsuarioRegistradoResult" nillable="true" type="q22:Mensaje" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

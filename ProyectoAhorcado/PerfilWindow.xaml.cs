@@ -68,6 +68,14 @@ namespace ProyectoAhorcado
             RegistroWindow registroWindow = new RegistroWindow();
             registroWindow.ventanaLabel.Content = "Actualizar";
             registroWindow.registrarButton.Content = "Actualizar";
+            registroWindow.nombreTextBox.Text = usuarioIniciado.nombre;
+            registroWindow.apellidoPTextBox.Text = usuarioIniciado.apellidoPaterno;
+            registroWindow.apellidoMTextBox.Text = usuarioIniciado.apellidoMaterno;
+            registroWindow.emailTextBox.Text = usuarioIniciado.correoElectronico;
+            registroWindow.emailTextBox.IsEnabled = false;
+            registroWindow.nombreUsuarioTextBox.Text = usuarioIniciado.nombreUsuario;
+            registroWindow.contrasenaBox.Password = usuarioIniciado.contrasena;
+            registroWindow.crearUsuarioRegistrado();
             registroWindow.Show();
             this.Close();
         }

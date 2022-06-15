@@ -913,6 +913,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobalResponse")]
         System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> insertarPuntajeGlobalAsync(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistrado", ReplyAction="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistradoResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje modificarUsuarioRegistrado(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistrado", ReplyAction="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistradoResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> modificarUsuarioRegistradoAsync(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1076,6 +1082,14 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> insertarPuntajeGlobalAsync(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal) {
             return base.Channel.insertarPuntajeGlobalAsync(puntajeGlobal);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje modificarUsuarioRegistrado(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario) {
+            return base.Channel.modificarUsuarioRegistrado(correoUsuario, nuevoDatosUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> modificarUsuarioRegistradoAsync(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario) {
+            return base.Channel.modificarUsuarioRegistradoAsync(correoUsuario, nuevoDatosUsuario);
         }
     }
 }

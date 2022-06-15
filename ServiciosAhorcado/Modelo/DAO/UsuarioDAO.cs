@@ -125,7 +125,7 @@ namespace ServiciosAhorcado.Modelo.DAO
             int filasAfectadas = 0;
             if (conexionBD != null)
             {
-                string query = "UPDATE usuario SET ,nombre = @nombre, aPaterno = @aPaterno, aMaterno = @aMaterno, fechaNacimiento = @fechaNacimiento," +
+                string query = "UPDATE usuario SET nombre = @nombre, aPaterno = @aPaterno, aMaterno = @aMaterno, fechaNacimiento = @fechaNacimiento," +
                     "nombreUsuario = @nombreUsuario, contrasena = @contrasena WHERE correoElectronico = @email";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
                 mySqlCommand.Parameters.AddWithValue("@nombre", nuevoDatosUsuario.nombre);
@@ -148,7 +148,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 if (filasAfectadas > 0)
                 {
                     mensaje.Error = false;
-                    mensaje.MensajeRespuesta = "Usuario insertado correctamente.";
+                    mensaje.MensajeRespuesta = "Usuario actualizado correctamente.";
                     mensaje.filasAfectadas = filasAfectadas;
                 }
                 else

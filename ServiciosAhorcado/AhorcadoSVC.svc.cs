@@ -124,5 +124,12 @@ namespace ServiciosAhorcado
             Mensaje mensaje = PuntajeGlobalDAO.registrarPuntajeGlobal(puntajeGlobal);
             return mensaje;
         }
+
+        public Mensaje modificarUsuarioRegistrado(string correoUsuario, Usuario nuevoDatosUsuario)
+        {
+            Mensaje mensaje = new Mensaje();
+            mensaje = UsuarioDAO.modificarUsuario(correoUsuario, nuevoDatosUsuario);
+            return mensaje;
+        }
     }
 }

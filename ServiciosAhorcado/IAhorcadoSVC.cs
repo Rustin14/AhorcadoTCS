@@ -62,5 +62,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         Mensaje insertarPuntajeGlobal(PuntajeGlobal puntajeGlobal);
+
+        [OperationContract]
+        Mensaje modificarUsuarioRegistrado(string correoUsuario, Usuario nuevoDatosUsuario);
     }
 }
