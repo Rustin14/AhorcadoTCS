@@ -92,6 +92,7 @@
   <xs:complexType name="PuntajeGlobal">
     <xs:sequence>
       <xs:element minOccurs="0" name="idCategoria" type="xs:int" />
+      <xs:element minOccurs="0" name="idPalabra" type="xs:int" />
       <xs:element minOccurs="0" name="idPartida" type="xs:int" />
       <xs:element minOccurs="0" name="idPuntaje" type="xs:int" />
       <xs:element minOccurs="0" name="idUsuario" type="xs:int" />

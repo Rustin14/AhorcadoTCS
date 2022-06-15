@@ -1,7 +1,9 @@
 ﻿using ProyectoAhorcado.ServiciosAhorcado;
+using ProyectoAhorcado.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -36,46 +38,73 @@ namespace ProyectoAhorcado
             MensajesAlerta mensajesAlerta = new MensajesAlerta();
             Usuario usuario = new Usuario();
 
-            if (validarCamposTexto() && confirmarContrasena(contrasenaBox.Password, confirmarContrasenaBox.Password))
+            if (validarCamposTexto().camposVacios == false)
             {
-                usuario.nombre = nombreTextBox.Text;
-                usuario.apellidoPaterno = apellidoPTextBox.Text;
-                usuario.apellidoMaterno = apellidoMTextBox.Text;
-                usuario.correoElectronico = emailTextBox.Text;
-                usuario.nombreUsuario = nombreUsuarioTextBox.Text;
-                usuario.contrasena = contrasenaBox.Password;
-                Mensaje mensaje = cliente.RegistrarUsuario(usuario);
-                if (!mensaje.Error)
+                if (validarCamposTexto().caracteresInvalidos == false)
                 {
-                    mensajesAlerta.mensajeExito(mensaje.MensajeRespuesta, "Registro de usuario");
-                    usuarioRegistrado = usuario;
-                    bandera = true;
+                    
+                    if (confirmarContrasena(contrasenaBox.Password, confirmarContrasenaBox.Password))
+                    {
+                        usuario.nombre = nombreTextBox.Text;
+                        usuario.apellidoPaterno = apellidoPTextBox.Text;
+                        usuario.apellidoMaterno = apellidoMTextBox.Text;
+                        if (validarCorreoElectronico(emailTextBox.Text))
+                        {
+                            usuario.correoElectronico = emailTextBox.Text;
+                        }
+                        else
+                        {
+                            mensajesAlerta.mensajeAlerta("Correo electrónico inválido.", "Registro de usuario");
+                            return bandera;
+                        }
+                        usuario.nombreUsuario = nombreUsuarioTextBox.Text;
+                        usuario.contrasena = contrasenaBox.Password;
+                        Mensaje mensaje = cliente.RegistrarUsuario(usuario);
+                        if (!mensaje.Error)
+                        {
+                            mensajesAlerta.mensajeExito(mensaje.MensajeRespuesta, "Registro de usuario");
+                            usuarioRegistrado = usuario;
+                            bandera = true;
+                        }
+                        else
+                        {
+                            mensajesAlerta.mensajeAlerta(mensaje.MensajeRespuesta, "Registro de usuario");
+                        }
+                    }
+                    else
+                    {
+                        mensajesAlerta.mensajeAlerta("Las contraseñas no son iguales. Verificar.", "Registro de usuario");
+                    }
                 } else
                 {
-                   mensajesAlerta.mensajeAlerta(mensaje.MensajeRespuesta, "Registro de usuario");
+                    mensajesAlerta.mensajeAlerta("Campos inválidos. Verificar.", "Registro de usuario");
                 }
             } else
             {
-                mensajesAlerta.mensajeAlerta("No dejar campos vacíos.", "Registro de usuario");
+                mensajesAlerta.mensajeAlerta("Llenar todos los campos. Verificar.", "Registro de usuario");
             }
-            return bandera; 
+            return bandera;
         }
 
         public Match validarTexto(string cadena)
         {
-            string regex = "/^[A - Za - z] +$/";
+            string regex = "^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$";
             Match match = Regex.Match(cadena, regex, RegexOptions.IgnoreCase);
             return match;
         }
 
-        public Match validarCorreoElectronico(String email)
+        public Boolean validarCorreoElectronico(String email)
         {
-            String regex = "(?:[a-z0-9!#$%&' * +/=? ^_`{|}~-]+(?:\\.[a-z0 - 9!#$%&'*+/=?^_`{|}~-]+)*|" +
-                "\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")" +
-                "@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.)" +
-                "{3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])";
-            Match match = Regex.Match(email, regex, RegexOptions.IgnoreCase);
-            return match;
+            Boolean bandera = true;
+            try
+            {
+                email = new MailAddress(email).Address;
+            }
+            catch (FormatException)
+            {
+                bandera = false;
+            }
+            return bandera;
         }
 
         public Boolean confirmarContrasena (string contrasena, string confirmacionContrasena)
@@ -83,20 +112,27 @@ namespace ProyectoAhorcado
             return String.Equals(contrasena, confirmacionContrasena);
         }
 
-        public Boolean validarCamposTexto()
+        public Validacion validarCamposTexto()
         {
+            Validacion validaciones = new Validacion();
             if (!String.IsNullOrWhiteSpace(nombreTextBox.Text) && !String.IsNullOrWhiteSpace(apellidoPTextBox.Text)
                 && !String.IsNullOrWhiteSpace(apellidoMTextBox.Text)  && !String.IsNullOrWhiteSpace(emailTextBox.Text) 
                 && !String.IsNullOrWhiteSpace(nombreUsuarioTextBox.Text) && !String.IsNullOrWhiteSpace(contrasenaBox.Password) 
                 && !String.IsNullOrWhiteSpace(confirmarContrasenaBox.Password))
             {
                 if (validarTexto(nombreTextBox.Text).Success && validarTexto(apellidoPTextBox.Text).Success 
-                    && validarTexto(apellidoMTextBox.Text).Success && validarTexto(nombreUsuarioTextBox.Text).Success && validarCorreoElectronico(emailTextBox.Text).Success)
+                    && validarTexto(apellidoMTextBox.Text).Success && validarTexto(nombreUsuarioTextBox.Text).Success && validarCorreoElectronico(emailTextBox.Text))
                 {
-                    return true;
+                    
+                } else
+                {
+                    validaciones.caracteresInvalidos = true;
                 }
+            } else
+            {
+                validaciones.camposVacios = true;
             }
-            return false;
+            return validaciones;
         }
 
         private void BtnRegistrar(object sender, RoutedEventArgs e)
@@ -107,18 +143,6 @@ namespace ProyectoAhorcado
                 menuInicio.Show();
                 this.Close();
             }
-            //if (registrarButton.Content.Equals("Registrar"))
-            //{
-            //    MainWindow mainWindow = new MainWindow();
-            //    mainWindow.Show();
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    PerfilWindow perfilWindow = new PerfilWindow();
-            //    perfilWindow.Show();
-            //    this.Close();
-            //}
         }
 
         private void BtnCancelar(object sender, RoutedEventArgs e)

@@ -59,5 +59,8 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         List<PuntajeGlobal> obtenerPuntajeGlobal(int idUsuario);
+
+        [OperationContract]
+        Mensaje insertarPuntajeGlobal(PuntajeGlobal puntajeGlobal);
     }
 }

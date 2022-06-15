@@ -664,6 +664,9 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         private int idCategoriaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPalabraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idPartidaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -700,6 +703,19 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
                 if ((this.idCategoriaField.Equals(value) != true)) {
                     this.idCategoriaField = value;
                     this.RaisePropertyChanged("idCategoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPalabra {
+            get {
+                return this.idPalabraField;
+            }
+            set {
+                if ((this.idPalabraField.Equals(value) != true)) {
+                    this.idPalabraField = value;
+                    this.RaisePropertyChanged("idPalabra");
                 }
             }
         }
@@ -891,6 +907,12 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobalResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal>> obtenerPuntajeGlobalAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobalResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje insertarPuntajeGlobal(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobalResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> insertarPuntajeGlobalAsync(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1046,6 +1068,14 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal>> obtenerPuntajeGlobalAsync(int idUsuario) {
             return base.Channel.obtenerPuntajeGlobalAsync(idUsuario);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje insertarPuntajeGlobal(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal) {
+            return base.Channel.insertarPuntajeGlobal(puntajeGlobal);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> insertarPuntajeGlobalAsync(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal) {
+            return base.Channel.insertarPuntajeGlobalAsync(puntajeGlobal);
         }
     }
 }

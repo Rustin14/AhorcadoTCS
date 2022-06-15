@@ -104,6 +104,12 @@
   <wsdl:message name="IAhorcadoSVC_obtenerPuntajeGlobal_OutputMessage">
     <wsdl:part name="parameters" element="tns:obtenerPuntajeGlobalResponse" />
   </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_insertarPuntajeGlobal_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarPuntajeGlobal" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_insertarPuntajeGlobal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarPuntajeGlobalResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAhorcadoSVC">
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogIn" message="tns:IAhorcadoSVC_LogIn_InputMessage" />
@@ -168,6 +174,10 @@
     <wsdl:operation name="obtenerPuntajeGlobal">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobal" message="tns:IAhorcadoSVC_obtenerPuntajeGlobal_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobalResponse" message="tns:IAhorcadoSVC_obtenerPuntajeGlobal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarPuntajeGlobal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobal" message="tns:IAhorcadoSVC_insertarPuntajeGlobal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobalResponse" message="tns:IAhorcadoSVC_insertarPuntajeGlobal_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAhorcadoSVC" type="tns:IAhorcadoSVC">
@@ -309,6 +319,15 @@
     </wsdl:operation>
     <wsdl:operation name="obtenerPuntajeGlobal">
       <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/obtenerPuntajeGlobal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarPuntajeGlobal">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobal" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

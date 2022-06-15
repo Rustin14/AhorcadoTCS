@@ -85,7 +85,17 @@ namespace ProyectoAhorcado
 
         public void registrarPartidaFinalizada()
         {
-            
+            PuntajeGlobal partidaFinalizada = new PuntajeGlobal();
+            partidaFinalizada.puntos = 10;
+            partidaFinalizada.idPartida = partidaCreada.idPartida;
+            partidaFinalizada.idUsuarioRetador = partidaCreada.idUsuarioRetador;
+            partidaFinalizada.idUsuario = partidaCreada.idUsuario;
+            partidaFinalizada.idCategoria = partidaFinalizada.idCategoria;
+            Mensaje mensaje = servicios.insertarPuntajeGlobal(partidaFinalizada);
+            if (!mensaje.Error)
+            {
+                System.Diagnostics.Debug.WriteLine(mensaje.MensajeRespuesta);
+            }
         }
 
         public void llenarComponente(String palabra)
@@ -228,6 +238,7 @@ namespace ProyectoAhorcado
                     servicios.actualizarEstadoPartida(partidaCreada.idPartida, "Victoria");
                     finalizadoRectangulo.Visibility = Visibility.Visible;
                     victoriaLabel.Visibility = Visibility.Visible;
+                    registrarPartidaFinalizada();
                     FinalizadoModal modal = new FinalizadoModal("¡VICTORIA!");
                     modal.ShowDialog();
                     MenuInicio menuInicio = new MenuInicio(usuarioIniciado);

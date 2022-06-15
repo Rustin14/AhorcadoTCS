@@ -88,7 +88,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 {
                     filasAfectadas = mySqlCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
                     mensaje.Error = true;
                     mensaje.MensajeRespuesta = ex.Message;
@@ -99,10 +99,14 @@ namespace ServiciosAhorcado.Modelo.DAO
                     mensaje.MensajeRespuesta = "Usuario insertado correctamente.";
                     mensaje.filasAfectadas = filasAfectadas;
                 }
-                else
+                else if (filasAfectadas == 0)
                 {
                     mensaje.Error = true;
-                    mensaje.MensajeRespuesta = "Ocurrió un error, intente más tarde.";
+                    mensaje.MensajeRespuesta = "El correo ingresado ya está registrado.";
+                } else
+                {
+                    mensaje.Error = true;
+                    mensaje.MensajeRespuesta = "Ocurrió un error. Intente más tarde.";
                 }
             }
             else
@@ -136,7 +140,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 {
                     filasAfectadas = mySqlCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
                     mensaje.Error = true;
                     mensaje.MensajeRespuesta = ex.Message;

@@ -216,4 +216,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="insertarPuntajeGlobal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="puntajeGlobal" nillable="true" type="q19:PuntajeGlobal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarPuntajeGlobalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ServiciosAhorcado.Modelo.Poco" minOccurs="0" name="insertarPuntajeGlobalResult" nillable="true" type="q20:Mensaje" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

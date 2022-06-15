@@ -123,27 +123,21 @@
     <Compile Include="CrearPartidaWindow.xaml.cs">
       <DependentUpon>CrearPartidaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EsperarJugador.xaml.cs">
-      <DependentUpon>EsperarJugador.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FinalizadoModal.xaml.cs">
       <DependentUpon>FinalizadoModal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MensajesAlerta.cs" />
+    <Compile Include="Utilidades\MensajesAlerta.cs" />
     <Compile Include="PartidasDisponiblesWindow.xaml.cs">
       <DependentUpon>PartidasDisponiblesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistroWindow.xaml.cs">
       <DependentUpon>RegistroWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\Validacion.cs" />
     <Compile Include="VentanaAhorcado.xaml.cs">
       <DependentUpon>VentanaAhorcado.xaml</DependentUpon>
     </Compile>
     <Page Include="CrearPartidaWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EsperarJugador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
