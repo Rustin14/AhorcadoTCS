@@ -175,52 +175,53 @@ namespace ServiciosAhorcado.Modelo.DAO
             return respuesta;
         }
 
-            public static Mensaje crearPartida(Partida partidaNueva)
+        public static Mensaje crearPartida(Partida partidaNueva)
         {
-            Mensaje mensaje = new Mensaje();
-            MySqlConnection conexionBD = ConnectionUtil.obtenerConexion();
-            int filasAfectadas = 0;
+        Mensaje mensaje = new Mensaje();
+        MySqlConnection conexionBD = ConnectionUtil.obtenerConexion();
+        int filasAfectadas = 0;
 
-            if(conexionBD != null)
+        if(conexionBD != null)
+        {
+            string query = "INSERT INTO Partida (oportunidades, fecha, idUsuarioRetador, idUsuario, idPalabra, idCategoria, estado) " +
+                "VALUES (@oportunidades, @fecha, @idUsuarioRetador, @idUsuario, @idPalabra, @idCategoria, @estado)";
+            MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
+            mySqlCommand.Parameters.AddWithValue("@oportunidades", partidaNueva.oportunidades);
+            mySqlCommand.Parameters.AddWithValue("@fecha", partidaNueva.Fecha);
+            mySqlCommand.Parameters.AddWithValue("@idUsuarioRetador", partidaNueva.idUsuarioRetador);
+            mySqlCommand.Parameters.AddWithValue("@idUsuario", partidaNueva.idUsuario);
+            mySqlCommand.Parameters.AddWithValue("@idPalabra", partidaNueva.palabraId);
+            mySqlCommand.Parameters.AddWithValue("@idCategoria", partidaNueva.categoriaId);
+            mySqlCommand.Parameters.AddWithValue("@estado", partidaNueva.estado);
+            mySqlCommand.Prepare();
+            try
             {
-                string query = "INSERT INTO Partida (oportunidades, fecha, idUsuarioRetador, idUsuario, idPalabra, idCategoria) " +
-                    "VALUES (@oportunidades, @fecha, @idUsuarioRetador, @idUsuario, @idPalabra, @idCategoria)";
-                MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
-                mySqlCommand.Parameters.AddWithValue("@oportunidades", partidaNueva.oportunidades);
-                mySqlCommand.Parameters.AddWithValue("@fecha", partidaNueva.Fecha);
-                mySqlCommand.Parameters.AddWithValue("@idUsuarioRetador", partidaNueva.idUsuarioRetador);
-                mySqlCommand.Parameters.AddWithValue("@idUsuario", partidaNueva.idUsuario);
-                mySqlCommand.Parameters.AddWithValue("@idPalabra", partidaNueva.palabraId);
-                mySqlCommand.Parameters.AddWithValue("@idCategoria", partidaNueva.categoriaId);
-                mySqlCommand.Prepare();
-                try
-                {
-                    filasAfectadas = mySqlCommand.ExecuteNonQuery();
-                }
-                catch(Exception ex)
-                {
-                    mensaje.Error = true;
-                    mensaje.MensajeRespuesta = ex.Message;
-                }
-                if (filasAfectadas > 0)
-                {
-                    mensaje.Error = false;
-                    mensaje.MensajeRespuesta = "Usuario insertado correctamente.";
-                    mensaje.filasAfectadas = filasAfectadas;
-                }
-                else
-                {
-                    mensaje.Error = true;
-                    mensaje.MensajeRespuesta = "Ocurrió un error, intente más tarde.";
-                }
+                filasAfectadas = mySqlCommand.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                mensaje.Error = true;
+                mensaje.MensajeRespuesta = ex.Message;
+            }
+            if (filasAfectadas > 0)
+            {
+                mensaje.Error = false;
+                mensaje.MensajeRespuesta = "Partida insertada correctamente.";
+                mensaje.filasAfectadas = filasAfectadas;
             }
             else
             {
                 mensaje.Error = true;
-                mensaje.MensajeRespuesta = "Por el momento no hay conexión a los servicios.";
+                mensaje.MensajeRespuesta = "Ocurrió un error, intente más tarde.";
             }
-            return mensaje;
         }
+        else
+        {
+            mensaje.Error = true;
+            mensaje.MensajeRespuesta = "Por el momento no hay conexión a los servicios.";
+        }
+        return mensaje;
+    }
 
     }
 }

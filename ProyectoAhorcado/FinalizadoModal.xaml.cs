@@ -21,8 +21,8 @@ namespace ProyectoAhorcado
     {
         public FinalizadoModal(string finalizado)
         {
-            finalizadoLabel.Content = finalizado;
             InitializeComponent();
+            finalizadoLabel.Content = finalizado;
         }
 
         private void botonCerrar_Click(object sender, RoutedEventArgs e)

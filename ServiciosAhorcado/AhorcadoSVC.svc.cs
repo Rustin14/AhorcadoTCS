@@ -118,5 +118,11 @@ namespace ServiciosAhorcado
             puntajes = PuntajeGlobalDAO.ObtenerPuntajeGlobal(idUsuario);
             return puntajes;
         }
+
+        public Mensaje insertarPuntajeGlobal(PuntajeGlobal puntajeGlobal)
+        {
+            Mensaje mensaje = PuntajeGlobalDAO.registrarPuntajeGlobal(puntajeGlobal);
+            return mensaje;
+        }
     }
 }
