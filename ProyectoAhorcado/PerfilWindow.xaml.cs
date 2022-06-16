@@ -33,11 +33,12 @@ namespace ProyectoAhorcado
             System.Diagnostics.Debug.WriteLine("Usuario: " + usuarioIniciado.nombre);
             labelNombre.Content = usuarioIniciado.nombre;
             labelApellidos.Content = usuarioIniciado.apellidoPaterno + " " + usuarioIniciado.apellidoMaterno;
-            labelNombreUsuario.Content = usuarioIniciado.nombreUsuario;
             labelEmail.Content = usuarioIniciado.correoElectronico;
+            labelNombreUsuario.Content = usuarioIniciado.nombreUsuario;
             obtenerUsuarios();
             obtenerPuntajeGlobal();
         }
+
         public void obtenerUsuarios() {
             usuarios = client.obtenerUsuariosRegistrados();
         }
@@ -49,9 +50,8 @@ namespace ProyectoAhorcado
 
             for (int i = 0; i < puntajes.Count; i++) {
                 for (int j = 0; j < usuarios.Count; j++) {
-                    if (puntajes[i].idUsuarioRetador == usuarioIniciado.idUsuario) {
-                        puntajes[i].nombreUsuarioRetrador = usuarios[j].nombreUsuario;
-                    }
+                    Usuario usuario = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuario);
+                    puntajes[i].nombreUsuarioRetrador = usuario.nombre + " " + usuario.apellidoPaterno;
                 }
             }
             for (int i = 0; i < puntajes.Count; i++) {

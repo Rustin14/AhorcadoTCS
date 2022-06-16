@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="PerfilWindow" Height="650" Width="600">
     <Grid>
-        <Label Content="PERFIL" HorizontalAlignment="Left" Margin="154,29,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="49,90,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="311,90,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="49,183,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="311,183,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="labelNombre" Content="Nombre(s)" HorizontalAlignment="Left" Margin="49,129,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label x:Name="labelApellidos" Content="Apellido(s)" HorizontalAlignment="Left" Margin="311,129,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label x:Name="labelNombreUsuario" Content="NombreUsuario" HorizontalAlignment="Left" Margin="49,231,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label x:Name="labelEmail" Content="email@example.com" HorizontalAlignment="Left" Margin="311,231,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="PERFIL" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="80,92,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="342,92,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="80,185,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="342,185,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="labelNombre" Content="Nombre(s)" HorizontalAlignment="Left" Margin="80,126,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelApellidos" Content="Apellido(s)" HorizontalAlignment="Left" Margin="342,126,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelNombreUsuario" Content="NombreUsuario" HorizontalAlignment="Left" Margin="80,219,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="labelEmail" Content="email@example.com" HorizontalAlignment="Left" Margin="342,219,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Button Content="Regresar" HorizontalAlignment="Left" Margin="300,567,0,0" VerticalAlignment="Top" FontSize="18" Width="85" Click="BtnRegresar"/>
         <Button Content="Actualizar datos" HorizontalAlignment="Left" Margin="428,567,0,0" VerticalAlignment="Top" FontSize="18" Width="151" Click="BtnActualizarDatos"/>
-        <DataGrid x:Name="dtGridPuntajes" Margin="71,331,71,94" Background="Black">
+        <DataGrid x:Name="dtGridPuntajes" Margin="71,294,71,108" Background="Black">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Black"/>
@@ -29,7 +29,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="dtGridPartida" Header="#Partida" Binding="{Binding idPartida}"  Width="100"/>
                 <DataGridTextColumn x:Name="dtGridPuntos" Header="Puntos" Binding="{Binding puntos}" Width="200"/>
-                <DataGridTextColumn x:Name="dtGridJugadorVencido" Header="Jugador vencido" Binding="{Binding nombreUsuarioRetador}" Width="150"/>
+                <DataGridTextColumn x:Name="dtGridJugadorVencido" Header="Jugador vencido" Binding="{Binding nombreUsuarioRetrador}" Width="150"/>
             </DataGrid.Columns>
 
         </DataGrid>
