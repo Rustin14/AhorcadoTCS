@@ -57,7 +57,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 string query = "INSERT INTO puntaje_global (puntos, idPartida, idUsuarioRetador, idUsuario, idPalabra, idCategoria) " +
                     "VALUES (@puntos, @idPartida, @idUsuarioRetador, @idUsuario, @idPalabra, @idCategoria);";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
-                mySqlCommand.Parameters.AddWithValue("puntos", puntajeGlobal.puntos);
+                mySqlCommand.Parameters.AddWithValue("@puntos", puntajeGlobal.puntos);
                 mySqlCommand.Parameters.AddWithValue("@idPartida", puntajeGlobal.idPartida);
                 mySqlCommand.Parameters.AddWithValue("@idUsuarioRetador", puntajeGlobal.idUsuarioRetador);
                 mySqlCommand.Parameters.AddWithValue("@idUsuario", puntajeGlobal.idUsuario);

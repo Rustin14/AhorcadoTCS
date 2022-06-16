@@ -17,7 +17,7 @@ namespace ServiciosAhorcado.Modelo
 
         private static string DB_USER = "root";
 
-        private static string PASSWORD = "HALOcea206-";
+        private static string PASSWORD = "Flipper10011";
 
         public static MySqlConnection obtenerConexion()
         {

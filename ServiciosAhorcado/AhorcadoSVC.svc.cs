@@ -131,5 +131,15 @@ namespace ServiciosAhorcado
             mensaje = UsuarioDAO.modificarUsuario(correoUsuario, nuevoDatosUsuario);
             return mensaje;
         }
+
+        public String getPalabraIngresada()
+        {
+            return GameUtil.palabraIngresada;
+        }
+
+        public void setPalabraIngresada(string palabra)
+        {
+            GameUtil.palabraIngresada = palabra;
+        }
     }
 }

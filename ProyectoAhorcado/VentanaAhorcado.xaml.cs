@@ -30,6 +30,7 @@ namespace ProyectoAhorcado
         Usuario usuarioIniciado = new Usuario();
         Palabra palabraSeleccionada = new Palabra();
         Partida partidaCreada = new Partida();
+        String palabraIngresada;
         List<String> letrasCombo = new List<String> {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                 "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
         char letraSeleccionada;
@@ -71,17 +72,59 @@ namespace ProyectoAhorcado
         {
             while (!partidaFinalizada)
             {
-                if (letraSeleccionada != servicios.getLetraEscogida())
+                char letraServicio = servicios.getLetraEscogida();
+                String palabraServicio = servicios.getPalabraIngresada();
+
+                if (!letraSeleccionada.Equals("") && !letraSeleccionada.Equals(" "))
                 {
-                    letraSeleccionada = servicios.getLetraEscogida();
-                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    if (letraSeleccionada != letraServicio)
                     {
-                        MostrarJuego();
-                    })); 
+                        letraSeleccionada = letraServicio;
+                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            MostrarJuego();
+                        }));
+                    }
+                } else if (!palabraIngresada.Equals("") && !palabraIngresada.Equals(" "))
+                {
+                    if (palabraIngresada != palabraServicio)
+                    {
+                        palabraIngresada = palabraServicio;
+                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            adivinarPalabra(palabraIngresada);
+                        }));
+                    }
                 }
-                
             }
         }
+
+        public void adivinarPalabra(string palabraAdivinada)
+        {
+            if (palabraAdivinada == palabraSeleccionada.nombre)
+            {
+                servicios.setPalabraIngresada(palabraAdivinada);
+                System.Diagnostics.Debug.WriteLine(servicios.getPalabraIngresada());
+                for (int i = 0; i < palabra.Length; i++)
+                {
+                    String textboxName = "textbox" + i.ToString();
+                    for (var x = 0; x < VisualTreeHelper.GetChildrenCount(panelPalabra); x++)
+                    {
+                        TextBox child = (TextBox)VisualTreeHelper.GetChild(panelPalabra, x);
+                        if (child.Name == textboxName)
+                        {
+                            child.Text = palabra.Substring(i).ToString();
+                        }
+                    }
+                }
+                validarJuego();
+            } else
+            {
+                MensajesAlerta mensajesAlert = new MensajesAlerta();
+                mensajesAlert.mensajeAlerta("Palabra incorrecta.", "Ahorcado");
+            }
+        }
+
 
         public void registrarPartidaFinalizada()
         {
@@ -247,6 +290,12 @@ namespace ProyectoAhorcado
                 }
             }
 
+        }
+
+        private void adivinarPalabraBtn_Click(object sender, RoutedEventArgs e)
+        {
+            String palabraAdivinada = palabraTb.Text;
+            adivinarPalabra(palabraAdivinada);
         }
     }
 }

@@ -93,7 +93,7 @@
         <TextBox x:Name="palabraTb" HorizontalAlignment="Left" Margin="400,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
         <Label Content="AYUDA" HorizontalAlignment="Left" Margin="554,215,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="jugarLetraBtn" Content="Jugar letra" HorizontalAlignment="Left" Margin="467,375,0,0" VerticalAlignment="Top" Width="67" Click="jugarLetraBtn_Click"/>
-        <Button x:Name="adivinarPalabraBtn" Content="Adivinar palabra" HorizontalAlignment="Left" Margin="551,409,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button x:Name="adivinarPalabraBtn" Content="Adivinar palabra" HorizontalAlignment="Left" Margin="551,409,0,0" VerticalAlignment="Top" Width="104" Click="adivinarPalabraBtn_Click"/>
 
         <Rectangle x:Name="finalizadoRectangulo" HorizontalAlignment="Center" Height="600" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#BF000000" Visibility="Hidden"/>
         <Label x:Name="victoriaLabel" Content="¡VICTORIA!" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="1.304,0.532" Height="94" Width="376" FontSize="72" FontFamily="Roboto" FontStyle="Italic" FontWeight="Bold" Background="{x:Null}" Foreground="White" Visibility="Hidden"/>

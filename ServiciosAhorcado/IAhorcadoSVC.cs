@@ -65,5 +65,11 @@ namespace ServiciosAhorcado
 
         [OperationContract]
         Mensaje modificarUsuarioRegistrado(string correoUsuario, Usuario nuevoDatosUsuario);
+
+        [OperationContract]
+        String getPalabraIngresada();
+
+        [OperationContract]
+        void setPalabraIngresada(string palabra);
     }
 }

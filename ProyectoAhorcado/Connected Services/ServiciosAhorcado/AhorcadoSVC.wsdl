@@ -116,6 +116,18 @@
   <wsdl:message name="IAhorcadoSVC_modificarUsuarioRegistrado_OutputMessage">
     <wsdl:part name="parameters" element="tns:modificarUsuarioRegistradoResponse" />
   </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_getPalabraIngresada_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPalabraIngresada" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_getPalabraIngresada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPalabraIngresadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_setPalabraIngresada_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPalabraIngresada" />
+  </wsdl:message>
+  <wsdl:message name="IAhorcadoSVC_setPalabraIngresada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPalabraIngresadaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAhorcadoSVC">
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/LogIn" message="tns:IAhorcadoSVC_LogIn_InputMessage" />
@@ -188,6 +200,14 @@
     <wsdl:operation name="modificarUsuarioRegistrado">
       <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistrado" message="tns:IAhorcadoSVC_modificarUsuarioRegistrado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistradoResponse" message="tns:IAhorcadoSVC_modificarUsuarioRegistrado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPalabraIngresada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/getPalabraIngresada" message="tns:IAhorcadoSVC_getPalabraIngresada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/getPalabraIngresadaResponse" message="tns:IAhorcadoSVC_getPalabraIngresada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPalabraIngresada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAhorcadoSVC/setPalabraIngresada" message="tns:IAhorcadoSVC_setPalabraIngresada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAhorcadoSVC/setPalabraIngresadaResponse" message="tns:IAhorcadoSVC_setPalabraIngresada_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAhorcadoSVC" type="tns:IAhorcadoSVC">
@@ -347,6 +367,24 @@
     </wsdl:operation>
     <wsdl:operation name="modificarUsuarioRegistrado">
       <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPalabraIngresada">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/getPalabraIngresada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPalabraIngresada">
+      <soap:operation soapAction="http://tempuri.org/IAhorcadoSVC/setPalabraIngresada" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

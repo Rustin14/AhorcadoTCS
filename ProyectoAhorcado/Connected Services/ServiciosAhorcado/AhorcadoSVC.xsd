@@ -245,4 +245,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getPalabraIngresada">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPalabraIngresadaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getPalabraIngresadaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPalabraIngresada">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="palabra" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPalabraIngresadaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
