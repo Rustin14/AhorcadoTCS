@@ -45,6 +45,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                     DateTime dateTime = DateTime.Now;
                     usuario.nombreUsuario = (respuestaBD.IsDBNull(6) ? "" : respuestaBD.GetString(6));
                     usuario.fechaNacimiento = (respuestaBD.IsDBNull(5) ? dateTime : respuestaBD.GetDateTime(5));
+                    usuario.nombreUsuario = (respuestaBD.IsDBNull(6) ? "" : respuestaBD.GetString(6));
                     usuario.contrasena = (respuestaBD.IsDBNull(7) ? "" : respuestaBD.GetString(7));
                     respuesta.InformacionUsuario = usuario;
 

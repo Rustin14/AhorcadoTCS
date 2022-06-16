@@ -15,7 +15,7 @@ namespace ServiciosAhorcado.Modelo.DAO
             MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
             if (conexionDB != null)
             {
-                string query = "SELECT * FROM puntaje_global WHERE idUsuario = @idUsuario";
+                string query = "SELECT * FROM puntaje_global WHERE idUsuarioRetador = @idUsuario";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
                 mySqlCommand.Parameters.AddWithValue("@idUsuario", idUsuario);
                 mySqlCommand.Prepare();
@@ -36,7 +36,8 @@ namespace ServiciosAhorcado.Modelo.DAO
                     puntaje.idPartida = (respuestaBD.IsDBNull(2) ? 0 : respuestaBD.GetInt32(2));
                     puntaje.idUsuarioRetador = (respuestaBD.IsDBNull(3) ? 0 : respuestaBD.GetInt32(3));
                     puntaje.idUsuario = (respuestaBD.IsDBNull(4) ? 0 : respuestaBD.GetInt32(4));
-                    puntaje.idCategoria = (respuestaBD.IsDBNull(5) ? 0 : respuestaBD.GetInt32(5));
+                    puntaje.idPalabra = (respuestaBD.IsDBNull(5) ? 0 : (respuestaBD.GetInt32(5)));
+                    puntaje.idCategoria = (respuestaBD.IsDBNull(6) ? 0 : respuestaBD.GetInt32(6));
                     puntajes.Add(puntaje);
                 }
                 else
