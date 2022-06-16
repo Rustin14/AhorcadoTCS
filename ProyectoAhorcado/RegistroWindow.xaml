@@ -14,12 +14,12 @@
         <TextBox x:Name="apellidoPTextBox" HorizontalAlignment="Left" Margin="234,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" BorderBrush="Black" BorderThickness="0,0,0,1"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="41,214,0,0" VerticalAlignment="Top" FontFamily="Roboto" RenderTransformOrigin="0.293,0.515"/>
         <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="312,214,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
-        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Margin="43,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="14" BorderBrush="Black" BorderThickness="0,0,0,1"/>
-        <TextBox x:Name="nombreUsuarioTextBox" HorizontalAlignment="Left" Margin="318,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" FontSize="14" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Margin="47,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="14" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="nombreUsuarioTextBox" HorizontalAlignment="Left" Margin="322,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" FontSize="14" BorderBrush="Black" BorderThickness="0,0,0,1"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="43,333,0,0" VerticalAlignment="Top" FontFamily="Roboto" RenderTransformOrigin="0.379,0.494"/>
         <Label Content="Confirmar contraseña" HorizontalAlignment="Left" Margin="312,333,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>
-        <PasswordBox x:Name="contrasenaBox" HorizontalAlignment="Left" Margin="43,243,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Black" FontSize="14" BorderThickness="0,0,0,1"/>
-        <PasswordBox x:Name="confirmarContrasenaBox" HorizontalAlignment="Left" Margin="318,243,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Black" FontSize="14" BorderThickness="0,0,0,1"/>
+        <PasswordBox x:Name="contrasenaBox" HorizontalAlignment="Left" Margin="47,357,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Black" FontSize="14" BorderThickness="0,0,0,1"/>
+        <PasswordBox x:Name="confirmarContrasenaBox" HorizontalAlignment="Left" Margin="322,357,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Black" FontSize="14" BorderThickness="0,0,0,1"/>
         <Button x:Name="cancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="371,524,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="76" Click="BtnCancelar"/>
         <Button x:Name="registrarButton" Content="Registrar" HorizontalAlignment="Left" Margin="477,524,0,0" VerticalAlignment="Top" FontSize="14" Height="24" Width="81" Click="BtnRegistrar"/>
         <Label Content="Apellido materno" HorizontalAlignment="Left" Margin="429,101,0,0" VerticalAlignment="Top" FontFamily="Roboto"/>

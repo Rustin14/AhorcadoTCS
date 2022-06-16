@@ -30,7 +30,7 @@ namespace ProyectoAhorcado
         Usuario usuarioIniciado = new Usuario();
         Palabra palabraSeleccionada = new Palabra();
         Partida partidaCreada = new Partida();
-        String palabraIngresada;
+        String palabraIngresada = "";
         List<String> letrasCombo = new List<String> {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                 "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
         char letraSeleccionada;
@@ -49,8 +49,11 @@ namespace ProyectoAhorcado
             detectarJugador();
             if (creadorPartida == true)
             {
-                Thread hiloCreadorPartida = new Thread(new ThreadStart(mostrarJuegoRetador));
-                hiloCreadorPartida.Start();
+                servicios.setPalabraIngresada("");
+                Thread hiloLetra = new Thread(new ThreadStart(mostrarJuegoRetador));
+                hiloLetra.Start();
+                Thread hiloPalabra = new Thread(new ThreadStart(validarPalabra));
+                hiloPalabra.Start();
             }
         }
 
@@ -73,7 +76,6 @@ namespace ProyectoAhorcado
             while (!partidaFinalizada)
             {
                 char letraServicio = servicios.getLetraEscogida();
-                String palabraServicio = servicios.getPalabraIngresada();
 
                 if (!letraSeleccionada.Equals("") && !letraSeleccionada.Equals(" "))
                 {
@@ -85,27 +87,39 @@ namespace ProyectoAhorcado
                             MostrarJuego();
                         }));
                     }
-                } else if (!palabraIngresada.Equals("") && !palabraIngresada.Equals(" "))
+                } 
+            }
+        }
+
+        public void validarPalabra()
+        {
+            while (!partidaFinalizada)
+            {
+                palabraIngresada = servicios.getPalabraIngresada();
+
+                if (!palabraIngresada.Equals("") && !palabraIngresada.Equals(""))
                 {
-                    if (palabraIngresada != palabraServicio)
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
                     {
-                        palabraIngresada = palabraServicio;
-                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        if (adivinarPalabra(palabraIngresada))
                         {
-                            adivinarPalabra(palabraIngresada);
-                        }));
-                    }
+                            validarJuego();
+                        } else
+                        {
+                            partesAhorcado++;
+                            actualizarAhorcado();
+                        }
+                    }));
                 }
             }
         }
 
-        public void adivinarPalabra(string palabraAdivinada)
+        public Boolean adivinarPalabra(string palabraAdivinada)
         {
-            if (palabraAdivinada == palabraSeleccionada.nombre)
+            Boolean bandera = false;
+            if (palabraAdivinada.Equals(palabraSeleccionada.nombre, StringComparison.OrdinalIgnoreCase))
             {
-                servicios.setPalabraIngresada(palabraAdivinada);
-                System.Diagnostics.Debug.WriteLine(servicios.getPalabraIngresada());
-                for (int i = 0; i < palabra.Length; i++)
+                for (int i = 0; i < palabraAdivinada.Length; i++)
                 {
                     String textboxName = "textbox" + i.ToString();
                     for (var x = 0; x < VisualTreeHelper.GetChildrenCount(panelPalabra); x++)
@@ -113,16 +127,13 @@ namespace ProyectoAhorcado
                         TextBox child = (TextBox)VisualTreeHelper.GetChild(panelPalabra, x);
                         if (child.Name == textboxName)
                         {
-                            child.Text = palabra.Substring(i).ToString();
+                            child.Text = palabraAdivinada[x].ToString();
                         }
                     }
                 }
-                validarJuego();
-            } else
-            {
-                MensajesAlerta mensajesAlert = new MensajesAlerta();
-                mensajesAlert.mensajeAlerta("Palabra incorrecta.", "Ahorcado");
+                bandera = true;
             }
+            return bandera;
         }
 
 
@@ -131,9 +142,10 @@ namespace ProyectoAhorcado
             PuntajeGlobal partidaFinalizada = new PuntajeGlobal();
             partidaFinalizada.puntos = 10;
             partidaFinalizada.idPartida = partidaCreada.idPartida;
-            partidaFinalizada.idUsuarioRetador = partidaCreada.idUsuarioRetador;
+            partidaFinalizada.idUsuarioRetador = usuarioIniciado.idUsuario;
             partidaFinalizada.idUsuario = partidaCreada.idUsuario;
-            partidaFinalizada.idCategoria = partidaFinalizada.idCategoria;
+            partidaFinalizada.idPalabra = palabraSeleccionada.idPalabra;
+            partidaFinalizada.idCategoria = palabraSeleccionada.categoria;
             Mensaje mensaje = servicios.insertarPuntajeGlobal(partidaFinalizada);
             if (!mensaje.Error)
             {
@@ -281,7 +293,10 @@ namespace ProyectoAhorcado
                     servicios.actualizarEstadoPartida(partidaCreada.idPartida, "Victoria");
                     finalizadoRectangulo.Visibility = Visibility.Visible;
                     victoriaLabel.Visibility = Visibility.Visible;
-                    registrarPartidaFinalizada();
+                    if (creadorPartida != true)
+                    {
+                        registrarPartidaFinalizada();
+                    }
                     FinalizadoModal modal = new FinalizadoModal("¡VICTORIA!");
                     modal.ShowDialog();
                     MenuInicio menuInicio = new MenuInicio(usuarioIniciado);
@@ -294,8 +309,24 @@ namespace ProyectoAhorcado
 
         private void adivinarPalabraBtn_Click(object sender, RoutedEventArgs e)
         {
-            String palabraAdivinada = palabraTb.Text;
-            adivinarPalabra(palabraAdivinada);
+            if (!String.IsNullOrEmpty(palabraTb.Text))
+            {
+                String palabraAdivinada = palabraTb.Text;
+                servicios.setPalabraIngresada(palabraAdivinada);
+                if (adivinarPalabra(palabraAdivinada))
+                {
+                    validarJuego();
+                }
+                else
+                {
+                    MensajesAlerta mensajesAlert = new MensajesAlerta();
+                    mensajesAlert.mensajeAlerta(palabraAdivinada + " no es la palabra correcta.", "Ahorcado");
+                }
+            } else
+            {
+                MensajesAlerta mensajesAlert = new MensajesAlerta();
+                mensajesAlert.mensajeAlerta("No ingresó ninguna palabra.", "Ahorcado");
+            }
         }
     }
 }

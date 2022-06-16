@@ -15,7 +15,7 @@ namespace ServiciosAhorcado.Modelo.DAO
             MySqlConnection conexionDB = ConnectionUtil.obtenerConexion();
             if (conexionDB != null)
             {
-                string query = "SELECT * FROM puntaje_global WHERE idUsuarioRetador = @idUsuario";
+                string query = "SELECT * FROM puntaje_global WHERE idUsuario = @idUsuario";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionDB);
                 mySqlCommand.Parameters.AddWithValue("@idUsuario", idUsuario);
                 mySqlCommand.Prepare();
