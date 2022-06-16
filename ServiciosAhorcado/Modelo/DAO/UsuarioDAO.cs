@@ -43,6 +43,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                     usuario.apellidoPaterno = (respuestaBD.IsDBNull(3) ? "" : respuestaBD.GetString(3));
                     usuario.apellidoMaterno = (respuestaBD.IsDBNull(4) ? "" : respuestaBD.GetString(4));
                     DateTime dateTime = DateTime.Now;
+                    usuario.nombreUsuario = (respuestaBD.IsDBNull(6) ? "" : respuestaBD.GetString(6));
                     usuario.fechaNacimiento = (respuestaBD.IsDBNull(5) ? dateTime : respuestaBD.GetDateTime(5));
                     usuario.nombreUsuario = (respuestaBD.IsDBNull(6) ? "" : respuestaBD.GetString(6));
                     usuario.contrasena = (respuestaBD.IsDBNull(7) ? "" : respuestaBD.GetString(7));
@@ -125,7 +126,7 @@ namespace ServiciosAhorcado.Modelo.DAO
             int filasAfectadas = 0;
             if (conexionBD != null)
             {
-                string query = "UPDATE usuario SET ,nombre = @nombre, aPaterno = @aPaterno, aMaterno = @aMaterno, fechaNacimiento = @fechaNacimiento," +
+                string query = "UPDATE usuario SET nombre = @nombre, aPaterno = @aPaterno, aMaterno = @aMaterno, fechaNacimiento = @fechaNacimiento," +
                     "nombreUsuario = @nombreUsuario, contrasena = @contrasena WHERE correoElectronico = @email";
                 MySqlCommand mySqlCommand = new MySqlCommand(query, conexionBD);
                 mySqlCommand.Parameters.AddWithValue("@nombre", nuevoDatosUsuario.nombre);
@@ -148,7 +149,7 @@ namespace ServiciosAhorcado.Modelo.DAO
                 if (filasAfectadas > 0)
                 {
                     mensaje.Error = false;
-                    mensaje.MensajeRespuesta = "Usuario insertado correctamente.";
+                    mensaje.MensajeRespuesta = "Usuario actualizado correctamente.";
                     mensaje.filasAfectadas = filasAfectadas;
                 }
                 else

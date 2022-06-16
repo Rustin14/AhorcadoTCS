@@ -124,5 +124,22 @@ namespace ServiciosAhorcado
             Mensaje mensaje = PuntajeGlobalDAO.registrarPuntajeGlobal(puntajeGlobal);
             return mensaje;
         }
+
+        public Mensaje modificarUsuarioRegistrado(string correoUsuario, Usuario nuevoDatosUsuario)
+        {
+            Mensaje mensaje = new Mensaje();
+            mensaje = UsuarioDAO.modificarUsuario(correoUsuario, nuevoDatosUsuario);
+            return mensaje;
+        }
+
+        public String getPalabraIngresada()
+        {
+            return GameUtil.palabraIngresada;
+        }
+
+        public void setPalabraIngresada(string palabra)
+        {
+            GameUtil.palabraIngresada = palabra;
+        }
     }
 }

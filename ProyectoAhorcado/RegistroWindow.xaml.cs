@@ -25,7 +25,7 @@ namespace ProyectoAhorcado
     {
 
         ServiciosAhorcado.AhorcadoSVCClient cliente = new ServiciosAhorcado.AhorcadoSVCClient();
-        Usuario usuarioRegistrado;
+        Usuario usuarioRegistrado = new Usuario();
 
         public RegistroWindow()
         {
@@ -135,13 +135,92 @@ namespace ProyectoAhorcado
             return validaciones;
         }
 
+        public void crearUsuarioRegistrado()
+        {
+            usuarioRegistrado.nombre = nombreTextBox.Text;
+            usuarioRegistrado.apellidoPaterno = apellidoPTextBox.Text;
+            usuarioRegistrado.apellidoMaterno= apellidoMTextBox.Text;
+            usuarioRegistrado.correoElectronico = emailTextBox.Text;
+            usuarioRegistrado.nombreUsuario= nombreUsuarioTextBox.Text;
+            usuarioRegistrado.contrasena = contrasenaBox.Password;
+        }
+
+        private Boolean modificarUsuario()
+        {
+            Boolean bandera = false;
+            MensajesAlerta mensajesAlerta = new MensajesAlerta();
+            Usuario usuario = new Usuario();
+
+            if (validarCamposTexto().camposVacios == false)
+            {
+                if (validarCamposTexto().caracteresInvalidos == false)
+                {
+
+                    if (confirmarContrasena(contrasenaBox.Password, confirmarContrasenaBox.Password))
+                    {
+                        usuario.nombre = nombreTextBox.Text;
+                        usuario.apellidoPaterno = apellidoPTextBox.Text;
+                        usuario.apellidoMaterno = apellidoMTextBox.Text;
+                        if (validarCorreoElectronico(emailTextBox.Text))
+                        {
+                            usuario.correoElectronico = emailTextBox.Text;
+                        }
+                        else
+                        {
+                            mensajesAlerta.mensajeAlerta("Correo electrónico inválido.", "Registro de usuario");
+                            return bandera;
+                        }
+                        usuario.nombreUsuario = nombreUsuarioTextBox.Text;
+                        usuario.contrasena = contrasenaBox.Password;
+                        Mensaje mensaje = cliente.modificarUsuarioRegistrado(emailTextBox.Text, usuario);
+                        if (!mensaje.Error)
+                        {
+                            mensajesAlerta.mensajeExito(mensaje.MensajeRespuesta, "Registro de actualizacion de datos");
+                            usuarioRegistrado = usuario;
+                            bandera = true;
+                        }
+                        else
+                        {
+                            mensajesAlerta.mensajeAlerta(mensaje.MensajeRespuesta, "Registro de actualizacion de datos");
+                        }
+                    }
+                    else
+                    {
+                        mensajesAlerta.mensajeAlerta("Las contraseñas no son iguales. Verificar.", "Actualizar usuario");
+                    }
+                }
+                else
+                {
+                    mensajesAlerta.mensajeAlerta("Campos inválidos. Verificar.", "Actualizar usuario");
+                }
+            }
+            else
+            {
+                mensajesAlerta.mensajeAlerta("Llenar todos los campos. Verificar.", "Actualizar usuario");
+            }
+            return bandera;
+        }
+
         private void BtnRegistrar(object sender, RoutedEventArgs e)
         {
-            if (registro())
+            if (registrarButton.Content.Equals("Registrar")) 
             {
-                MenuInicio menuInicio = new MenuInicio(usuarioRegistrado);
-                menuInicio.Show();
-                this.Close();
+                if (registro())
+                {
+                    MenuInicio menuInicio = new MenuInicio(usuarioRegistrado);
+                    menuInicio.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                if (modificarUsuario())
+                {
+                    crearUsuarioRegistrado();
+                    PerfilWindow perfilWindow = new PerfilWindow(usuarioRegistrado);
+                    perfilWindow.Show();
+                    this.Close();
+                }
             }
         }
 
@@ -155,8 +234,8 @@ namespace ProyectoAhorcado
             }
             else
             {
-                //PerfilWindow perfilWindow = new PerfilWindow();
-                //perfilWindow.Show();
+                PerfilWindow perfilWindow = new PerfilWindow(usuarioRegistrado);
+                perfilWindow.Show();
                 this.Close();
             }
         }

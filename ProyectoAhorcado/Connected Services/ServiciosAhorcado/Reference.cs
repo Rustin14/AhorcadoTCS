@@ -913,6 +913,24 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobal", ReplyAction="http://tempuri.org/IAhorcadoSVC/insertarPuntajeGlobalResponse")]
         System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> insertarPuntajeGlobalAsync(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistrado", ReplyAction="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistradoResponse")]
+        ProyectoAhorcado.ServiciosAhorcado.Mensaje modificarUsuarioRegistrado(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistrado", ReplyAction="http://tempuri.org/IAhorcadoSVC/modificarUsuarioRegistradoResponse")]
+        System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> modificarUsuarioRegistradoAsync(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/getPalabraIngresada", ReplyAction="http://tempuri.org/IAhorcadoSVC/getPalabraIngresadaResponse")]
+        string getPalabraIngresada();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/getPalabraIngresada", ReplyAction="http://tempuri.org/IAhorcadoSVC/getPalabraIngresadaResponse")]
+        System.Threading.Tasks.Task<string> getPalabraIngresadaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/setPalabraIngresada", ReplyAction="http://tempuri.org/IAhorcadoSVC/setPalabraIngresadaResponse")]
+        void setPalabraIngresada(string palabra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAhorcadoSVC/setPalabraIngresada", ReplyAction="http://tempuri.org/IAhorcadoSVC/setPalabraIngresadaResponse")]
+        System.Threading.Tasks.Task setPalabraIngresadaAsync(string palabra);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1076,6 +1094,30 @@ namespace ProyectoAhorcado.ServiciosAhorcado {
         
         public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> insertarPuntajeGlobalAsync(ProyectoAhorcado.ServiciosAhorcado.PuntajeGlobal puntajeGlobal) {
             return base.Channel.insertarPuntajeGlobalAsync(puntajeGlobal);
+        }
+        
+        public ProyectoAhorcado.ServiciosAhorcado.Mensaje modificarUsuarioRegistrado(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario) {
+            return base.Channel.modificarUsuarioRegistrado(correoUsuario, nuevoDatosUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoAhorcado.ServiciosAhorcado.Mensaje> modificarUsuarioRegistradoAsync(string correoUsuario, ProyectoAhorcado.ServiciosAhorcado.Usuario nuevoDatosUsuario) {
+            return base.Channel.modificarUsuarioRegistradoAsync(correoUsuario, nuevoDatosUsuario);
+        }
+        
+        public string getPalabraIngresada() {
+            return base.Channel.getPalabraIngresada();
+        }
+        
+        public System.Threading.Tasks.Task<string> getPalabraIngresadaAsync() {
+            return base.Channel.getPalabraIngresadaAsync();
+        }
+        
+        public void setPalabraIngresada(string palabra) {
+            base.Channel.setPalabraIngresada(palabra);
+        }
+        
+        public System.Threading.Tasks.Task setPalabraIngresadaAsync(string palabra) {
+            return base.Channel.setPalabraIngresadaAsync(palabra);
         }
     }
 }

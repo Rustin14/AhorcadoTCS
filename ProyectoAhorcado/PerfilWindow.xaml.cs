@@ -53,6 +53,7 @@ namespace ProyectoAhorcado
                     Usuario usuario = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuario);
                     puntajes[i].nombreUsuarioRetrador = usuario.nombre + " " + usuario.apellidoPaterno;
                 }
+                puntajes[i].nombreUsuarioRetrador = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuarioRetador).nombreUsuario;
             }
             for (int i = 0; i < puntajes.Count; i++) {
                 dtGridPuntajes.Items.Add(puntajes[i]);
@@ -71,6 +72,14 @@ namespace ProyectoAhorcado
             RegistroWindow registroWindow = new RegistroWindow();
             registroWindow.ventanaLabel.Content = "Actualizar";
             registroWindow.registrarButton.Content = "Actualizar";
+            registroWindow.nombreTextBox.Text = usuarioIniciado.nombre;
+            registroWindow.apellidoPTextBox.Text = usuarioIniciado.apellidoPaterno;
+            registroWindow.apellidoMTextBox.Text = usuarioIniciado.apellidoMaterno;
+            registroWindow.emailTextBox.Text = usuarioIniciado.correoElectronico;
+            registroWindow.emailTextBox.IsEnabled = false;
+            registroWindow.nombreUsuarioTextBox.Text = usuarioIniciado.nombreUsuario;
+            registroWindow.contrasenaBox.Password = usuarioIniciado.contrasena;
+            registroWindow.crearUsuarioRegistrado();
             registroWindow.Show();
             this.Close();
         }
