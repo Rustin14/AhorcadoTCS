@@ -53,7 +53,7 @@ namespace ProyectoAhorcado
                     Usuario usuario = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuario);
                     puntajes[i].nombreUsuarioRetrador = usuario.nombre + " " + usuario.apellidoPaterno;
                 }
-                puntajes[i].nombreUsuarioRetrador = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuarioRetador).nombreUsuario;
+                puntajes[i].nombreUsuarioRetrador = usuarios.Find(x => x.idUsuario == puntajes[i].idUsuario).nombreUsuario;
             }
             for (int i = 0; i < puntajes.Count; i++) {
                 dtGridPuntajes.Items.Add(puntajes[i]);
